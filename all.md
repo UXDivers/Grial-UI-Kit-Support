@@ -4,7 +4,7 @@
 
 Grial offers a set of beautiful XAML UI views made for Xamarin Forms. These cover the most typical Mobile UI patterns and crafted with developers in mind. 
 
-We use MVVM pattern, but Grial is agnostic, meaning it is not bound to any specific MVVM framework.
+We use the MVVM pattern, but Grial is agnostic, meaning it is not bound to any specific MVVM framework.
 
 We provide easy way to focus on logic and to “almost forget” about the UI work by providing:
 
@@ -1517,7 +1517,7 @@ One of the remarkable features of this category is the use of `<WebView>`
 
 ---
 
-###Walkthroughs
+###Walkthroughs### 
 
 The Walkthroughs views and their item templates are used to explain users the main features of your app. Think of it as a "tutorial mode" where the UI demonstrate features to the user.
 
