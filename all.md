@@ -96,7 +96,27 @@ After you download your customized version of Grial, you will need to configure 
 ![Nuget source added](http://54.94.174.188:3000/system/uploads/images/grial_nuget_source_added.png)
 
 
-After adding the Grial nuget source you will need to restore packages.
+After adding Grial nuget source you will need to restore packages.
+
+
+### <a name="nuget-access-setup"></a> Nuget Access Setup on Grial Admin
+
+Grial 2.0 requires to setup a private Nuget source to get its packages.
+
+Most of the cases you will use your Grial Admin credentials to authenticate.
+
+Additionally, you can configure a dedicated nuget user to authenticate against the nuget server. You can share its credentials with your team and/or use them in your CI build servers.
+
+To change this go to Grial Admin and then:
+
+```
+User Account > Profile > Nuget Access
+```
+
+** NOTE:** This can only be used to authenticate against the nuget server.
+
+![](http://54.94.174.188:3000/system/uploads/images/grial_admin_nuget_config.png)
+
 
 
 ### <a name="grial-license-setup"></a> Grial License Setup
@@ -341,6 +361,7 @@ Replace the `IconsFontFamily` resource with your font file name (for instance `F
  Grial
     |_ Helpers
        |_ FontawesomeFont.cs
+       |_ GrialShapesFont.cs
        |_ IoniciconsFont.cs
 ~~~
 
