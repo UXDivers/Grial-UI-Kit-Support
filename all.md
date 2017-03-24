@@ -952,14 +952,21 @@ Grial's theme is made on top of:
 
 ### iOS Theme Setup
 
-***Overview***: You will need to copy ```Appearance.cs``` file from the ```Grial.iOS``` project to your iOS project and you will need to invoke it from `AppDelegate.cs` file in order to get the styles applied.
+***Overview***: You will need to copy ```ThemeColors.cs``` file from the ```Grial.iOS``` project to your iOS project and you will need to invoke it from `AppDelegate.cs` file in order to get the styles applied.
 
-  ![Grial iOS Appearance.cs](http://54.94.174.188:3000/system/uploads/images/grial-ios-appearance.png) 
+  ![Grial iOS ThemeColors.cs](http://54.94.174.188:3000/system/uploads/images/grial-ios-appearance.png) 
 
-1. Copy **"Appearance.cs"** file from Grial sample to your iOS folder on your project.
+1. Copy **"ThemeColors.cs"** file from Grial sample to your iOS folder on your project.
   This file is the responsible for the styling iOS apps.
 
-2. Finally, you will need to call `Appearance.Configure()` on your `AppDelegate.cs` file.
+2. Finally, you will need to add this call on your `AppDelegate.cs` file:
+
+```
+UXDivers.Artina.Shared.GrialKit.Init( new ThemeColors(), "UXDivers.Artina.Grial.GrialLicense" );
+```
+
+***NOTE:*** Replace the above with your Grial license as explained on:
+[Grial License Setup](#-grial-first-run-grial-license-setup).
 
 
 #### Avoiding your App crashing on iOS
