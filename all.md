@@ -65,7 +65,7 @@ Currently Grial UI Kit adds support for:
 
 ## Release Notes 
 
-[Check Grial Release Notes](/release-notes.html)
+[Check Grial Release Notes](.release-notes.html)
 
 
 ##<a name="grial-download"></a> Downloading Grial
