@@ -62,6 +62,12 @@ Currently Grial UI Kit adds support for:
 
 
 
+
+## Release Notes 
+
+[Check Grial Release Notes](/release-notes.html)
+
+
 ##<a name="grial-download"></a> Downloading Grial
 
 When you purchase Grial you received and email with the link to [Grial admin](https://uxdivers.com/secure/grial/front), our online site where you:

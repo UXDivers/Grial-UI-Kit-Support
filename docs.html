@@ -16,115 +16,42 @@
   <link  href='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css' rel='stylesheet'>
   <script src='https://cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
 
+  <link  href='styles.css' rel='stylesheet'>
+
   <!-- Meta -->
   <meta content="Grial UI Kit 2.0" property="og:title">
-  <meta content="Ready made UI views crafted in XAML" name="description">
+  <meta content="Beautiful responsive XAML templates for Xamarin.Forms" name="description">
 
   <!-- Initializer -->
   <script>
     Flatdoc.run({
+      //fetcher: Flatdoc.github('UXDivers/Grial-UI-Kit-Support')
       fetcher: Flatdoc.file('all.md')
     });
   </script>
-  <style>
-    body, td, textarea, input {
-      font-size: 1em;
-    }
-    h1,h2,h3,h4,h5,h6,h7,
-    .content h1:first-child, 
-    .content h1:first-child a, 
-    .content h1:first-child a:visited{
-      color: #6092e4;
-    }
-    .header{
-      background-color:rgba(52, 80, 127, 1);
-      text-shadow: none;
-    }
-    .header h1 img {
-        height: 1.5em;
-    }
-    .header li a {
-        color: #FFF;
-    }
-    .header li a:hover{
-      color: #FFF;
-      text-decoration:underline;
-    }
-    .menubar {
-      font-size: 1em;
-    }
-    menu a.level-1 {
-      font-size: 1em;
-    }
-    .menu a.level-3 {
-      font-size: 0.85em;
-      opacity:0.8
-    }
-    .menu a{
-      margin-right: initial;
-    }
-    a,
-    .menu a, .menu a:visited {
-      color: #E91E63;
-    }
-    a:hover,
-    .menu a:hover {
-        color: #E91E63;
-        text-decoration:underline;
-    }
-    .menu a.level-1, 
-    .menu a.level-1:visited {
-        color: rgba(52, 80, 127, 1);
-    }
-
-    .menu a.active:after {      
-      right: 0;
-      width: 9px;
-      height: 3px;
-      -webkit-border-radius: 2px;
-      border-radius: 2px;
-      background: #ea1962;
-  }
-
-    ul.level-3{
-      margin-bottom:1em;
-    }
-
-    .content h4 {
-      font-size: 1.1em;
-    }
-    .content h5 {
-      font-size: 1em;
-    }
-
-    .content i, .content em {
-        font-style: normal;
-        color: inherit;
-    }
-
-    .content h4, 
-    .content h5, 
-    .content .small-heading, 
-    body:not(.big-h3) .content h3 {
-    color: #6092e4;
-}
-    img {
-        max-width: 100%;
-    }
-  </style>
+  
 </head>
 <body class="no-literate big-h3" role='flatdoc'>
 
   <div class='header'>
     <div class='left'>
       <h1>
-        <img src="app_logo_1x.png" />
+        <a href="/">
+          <img src="app_logo_1x.png" />
+        </a>
       </h1>
       <ul>
         <li><a href='https://github.com/UXDivers/Grial-UI-Kit-Support'>Support Website</a></li>
         <li><a href='https://github.com/UXDivers/Grial-UI-Kit-Support/issues'>See Issues</a></li>
       </ul>
     </div>
+    <!-- <div class='right'> -->
+      <!-- GitHub buttons: see http://ghbtns.com -->
+      <!-- <iframe 
+        src="http://ghbtns.com/github-btn.html?UXDivers=UXDivers&amp;Grial-UI-Kit-Support=Grial-UI-Kit-Support&amp;type=watch&amp;count=true" 
+        allowtransparency="true" 
+        frameborder="0" scrolling="0" width="110" height="20"></iframe>
+    </div> -->
   </div>
 
   <div class='content-root'>
