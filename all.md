@@ -1,6 +1,6 @@
 ## Grial 2.0 Overview
 
-![Grial](http://54.94.174.188:3000/system/uploads/images/grial_2_hero.png)
+![Grial](http://52.10.147.219/system/uploads/images/grial_2_hero.png)
 
 Grial offers a set of beautiful XAML UI views made for Xamarin Forms. These cover the most typical Mobile UI patterns and crafted with developers in mind. 
 
@@ -21,7 +21,7 @@ Please [visit Grial support website](https://github.com/UXDivers/Grial-UI-Kit-Su
 
 We also provide design and Grial customization services.
 
-[![UXDivers Design Services](http://54.94.174.188:3000/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
+[![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 ### Grial 2.0 New Features
 
 - Easier project setup
@@ -89,11 +89,11 @@ After you download your customized version of Grial, you will need to configure 
 
 ### Setting up UXDivers nugget source
 
-![Nuget configure sources](http://54.94.174.188:3000/system/uploads/images/nugget_configure_sources.png)
+![Nuget configure sources](http://52.10.147.219/system/uploads/images/nugget_configure_sources.png)
 
-![Nuget add sources](http://54.94.174.188:3000/system/uploads/images/nuget_add_package_source.png)
+![Nuget add sources](http://52.10.147.219/system/uploads/images/nuget_add_package_source.png)
 
-![Nuget source added](http://54.94.174.188:3000/system/uploads/images/grial_nuget_source_added.png)
+![Nuget source added](http://52.10.147.219/system/uploads/images/grial_nuget_source_added.png)
 
 
 After adding Grial nuget source you will need to restore packages.
@@ -115,7 +115,7 @@ User Account > Profile > Nuget Access
 
 ** NOTE:** This can only be used to authenticate against the nuget server.
 
-![](http://54.94.174.188:3000/system/uploads/images/grial_admin_nuget_config.png)
+![](http://52.10.147.219/system/uploads/images/grial_admin_nuget_config.png)
 
 
 
@@ -213,22 +213,22 @@ A single resource dictionary (```local:GrialLightTheme```, is the Grial default 
 There are 3 available themes you can use for your app:
 
 #### **Light** (GrialLightTheme.xaml)
-- ![](http://54.94.174.188:3000/system/uploads/images/light0.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/light1.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/light2.png)
+- ![](http://52.10.147.219/system/uploads/images/light0.png)
+- ![](http://52.10.147.219/system/uploads/images/light1.png)
+- ![](http://52.10.147.219/system/uploads/images/light2.png)
 
 
 
 #### **Dark** (GrialDarkTheme.xaml)
-- ![](http://54.94.174.188:3000/system/uploads/images/dark0.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/dark1.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/dark2.png)
+- ![](http://52.10.147.219/system/uploads/images/dark0.png)
+- ![](http://52.10.147.219/system/uploads/images/dark1.png)
+- ![](http://52.10.147.219/system/uploads/images/dark2.png)
 
 
 #### **Enterprise** (GrialEnterpriseTheme.xaml)
-- ![](http://54.94.174.188:3000/system/uploads/images/enterprise0.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/enterprise1.png)
-- ![](http://54.94.174.188:3000/system/uploads/images/enterprise2.png)
+- ![](http://52.10.147.219/system/uploads/images/enterprise0.png)
+- ![](http://52.10.147.219/system/uploads/images/enterprise1.png)
+- ![](http://52.10.147.219/system/uploads/images/enterprise2.png)
 
 These can be used as the starting point for your own theme.
 An additional theme which is actually a copy of ```Grial Default theme``` (Light) is also provided so you can start working on that theme without changing the default ones:
@@ -509,9 +509,9 @@ Starting from Grial 2.0 we provide 3 themes:
   
   This is the default theme inside Grial sample `App.xaml`, you won't need to do anything to see it applied on your App.
 
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/default_theme_preview_1.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/default_theme_preview_2.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/default_theme_preview_3.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/default_theme_preview_1.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/default_theme_preview_2.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/default_theme_preview_3.png)
 
 
   ### Grial Dark Theme ###
@@ -519,18 +519,18 @@ Starting from Grial 2.0 we provide 3 themes:
   This is the Dark theme. You will need to 
   follow the [Update Grial Theme On Your App Procedure](#update-grial-theme-on-your-app-procedure)
 
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/dark_theme_preview_1.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/dark_theme_preview_2.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/dark_theme_preview_3.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/dark_theme_preview_1.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/dark_theme_preview_2.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/dark_theme_preview_3.png)
 
   ### Grial Light Theme ###
   
   This is the Light theme. You will need to 
   follow the [Update Grial Theme On Your App Procedure](#update-grial-theme-on-your-app-procedure)
 
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/light_theme_preview_1.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/light_theme_preview_2.png)
-  ![Grial Default Theme Preview](http://54.94.174.188:3000/system/uploads/images/light_theme_preview_3.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/light_theme_preview_1.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/light_theme_preview_2.png)
+  ![Grial Default Theme Preview](http://52.10.147.219/system/uploads/images/light_theme_preview_3.png)
 
 
 ### <a name="update-grial-theme-on-your-app-procedure"></a>Update Grial Theme On Your App ###
@@ -566,14 +566,14 @@ In order to update your App's theme with any of the Grial themes you will need t
 
 Starting from Grial 2.0 we provide a helper with all the keys of each icon, making it easier to work with font icons:
 
-![GrialShapes.cs](http://54.94.174.188:3000/system/uploads/images/grial-shapes-cs.png)
+![GrialShapes.cs](http://52.10.147.219/system/uploads/images/grial-shapes-cs.png)
 
 In order to ease the process, Grial provides a page to preview all the icons bundled with the grial font:
 You can preview this page on the following location on Grial sample:
 
 ```Grial Theme > Grial Font Icons```
 
-![GrialShapes.cs](http://54.94.174.188:3000/system/uploads/images/grial-font-icons.png)
+![GrialShapes.cs](http://52.10.147.219/system/uploads/images/grial-font-icons.png)
 
 #### <a name="using-icons-cs-and-xaml"></a>Referencing icons on Code Behind and XAML
 
@@ -703,7 +703,7 @@ For more examples please check:
         |_ ResponsiveHelpersPage.xaml
 ~~~
 
-![Grial Responsive Helpers](http://54.94.174.188:3000/system/uploads/images/responsive_helpers_page.png)
+![Grial Responsive Helpers](http://52.10.147.219/system/uploads/images/responsive_helpers_page.png)
 
 
 
@@ -749,19 +749,19 @@ As mentioned before, Artina dlls contains most of our controls and Custom Render
 1. In your ***PCL*** add references to:
  * ```UXDivers.Artina.Shared.dll```
  
-  ![Artina.Shared on PCL](http://54.94.174.188:3000/system/uploads/images/artina_shared_on_pcl.png)
+  ![Artina.Shared on PCL](http://52.10.147.219/system/uploads/images/artina_shared_on_pcl.png)
 
 2. In your Android project add references to: 
  * ```UXDivers.Artina.Shared.dll```
  * ```UXDivers.Artina.Shared.Droid.dll```
 
-  ![Artina.Shared on Android](http://54.94.174.188:3000/system/uploads/images/artina_shared_on_android.png)
+  ![Artina.Shared on Android](http://52.10.147.219/system/uploads/images/artina_shared_on_android.png)
 
 3. In your iOS project add references to:
  * ```UXDivers.Artina.Shared.dll```
  * ```UXDivers.Artina.Shared.iOS.dll```
 
-  ![Artina.Shared on iOS](http://54.94.174.188:3000/system/uploads/images/artina_shared_on_ios.png)
+  ![Artina.Shared on iOS](http://52.10.147.219/system/uploads/images/artina_shared_on_ios.png)
 
   
 ### <a name="grial-license-setup"></a> Grial License Setup
@@ -814,7 +814,7 @@ to the
 folder on your iOS project, then set it to:
 ***BundleResource***, just like in the sample app.
 
-![iOS bundle resource](http://54.94.174.188:3000/system/uploads/images/ios_bundle_resource.png)
+![iOS bundle resource](http://52.10.147.219/system/uploads/images/ios_bundle_resource.png)
 
 2. Then add the following to your **info.plist** file:
 ```
@@ -825,7 +825,7 @@ folder on your iOS project, then set it to:
 ```
 **NOTE:** The display name for the **UIAppFonts** in the ```info.plist``` editor is ```'Fonts provided by application'```.
 
-![iOS info.plist](http://54.94.174.188:3000/system/uploads/images/info_plist_ios.png)
+![iOS info.plist](http://52.10.147.219/system/uploads/images/info_plist_ios.png)
 
 
 ##### For Android:
@@ -833,28 +833,28 @@ folder on your iOS project, then set it to:
 * Copy the file: 
 `CustomFontLabelRenderer.cs` from Grial's sample project (located on ```Grial.Droid/Renderers```) to your Android project.
 
-    ![CustomFontLabelRenderer.cs](http://54.94.174.188:3000/system/uploads/images/custom-font-label-renderer.png)
+    ![CustomFontLabelRenderer.cs](http://52.10.147.219/system/uploads/images/custom-font-label-renderer.png)
 
 * Then add the file:
 `grialshapes.ttf`
 to the 
 `/Assets` folder on your Android project.
 
-    ![Grial Shapes font.cs](http://54.94.174.188:3000/system/uploads/images/android-font-asset.png)
+    ![Grial Shapes font.cs](http://52.10.147.219/system/uploads/images/android-font-asset.png)
 
 
 * Select the file, and make sure the ***Build Action*** is set to:
 `"AndroidAsset"`
 in the Properties tab. (This is normally its default setting).
 
-    ![AndroidAsset](http://54.94.174.188:3000/system/uploads/images/android-build-action-asset.png)
+    ![AndroidAsset](http://52.10.147.219/system/uploads/images/android-build-action-asset.png)
 
 * [Register the icons custom renderer](#artina-custom-renderers-setup) (`CustomFontLabelRenderer`)
 on the `AssemblyInfo.cs` file with the following code (remember to use your custom namespace:
 
     ```[assembly: ExportRenderer(typeof(Label), typeof(YOUR_CUSTOM_NAMESPACE_HERE.Renderers.CustomFontLabelRenderer))]```
 
-    ![iOS AssemblyInfo](http://54.94.174.188:3000/system/uploads/images/assembly-info.png)
+    ![iOS AssemblyInfo](http://52.10.147.219/system/uploads/images/assembly-info.png)
 
 * Copy the ```CustomFontLabelRenderer.cs``` file from Grial sample to your Android project:
 ~~~
@@ -880,7 +880,7 @@ Grial's theme is made on top of:
 
 ***Overview***: You will need to copy specific files from the ***Grial.Droid*** project Resources folder to your Android project and set the theme on the ```MainActivity.cs``` file.
 
-![Android themes and layouts](http://54.94.174.188:3000/system/uploads/images/grial-droid-themes-and-layouts.png)
+![Android themes and layouts](http://52.10.147.219/system/uploads/images/grial-droid-themes-and-layouts.png)
 
 ***Important:*** Make sure you are using ***AppCompatV7*** on you project!
 
@@ -954,7 +954,7 @@ Grial's theme is made on top of:
 
 ***Overview***: You will need to copy ```ThemeColors.cs``` file from the ```Grial.iOS``` project to your iOS project and you will need to invoke it from `AppDelegate.cs` file in order to get the styles applied.
 
-  ![Grial iOS ThemeColors.cs](http://54.94.174.188:3000/system/uploads/images/grial-ios-appearance.png) 
+  ![Grial iOS ThemeColors.cs](http://52.10.147.219/system/uploads/images/grial-ios-appearance.png) 
 
 1. Copy **"ThemeColors.cs"** file from Grial sample to your iOS folder on your project.
   This file is the responsible for the styling iOS apps.
@@ -1063,7 +1063,7 @@ using UXDivers.Artina;
 **TROUBLESHOOT**
 
 In case you get the following exception:
-![Grial License Exception](http://54.94.174.188:3000/system/uploads/images/grial_license_exception.png)
+![Grial License Exception](http://52.10.147.219/system/uploads/images/grial_license_exception.png)
 please check [Grial License Setup](#grial-license-setup).
 
 ### Styles on App.xaml file
