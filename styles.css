@@ -1,0 +1,84 @@
+body, td, textarea, input {
+      font-size: 1em;
+    }
+    h1,h2,h3,h4,h5,h6,h7,
+    .content h1:first-child, 
+    .content h1:first-child a, 
+    .content h1:first-child a:visited{
+      color: #6092e4;
+    }
+    .header{
+      background-color:rgba(52, 80, 127, 1);
+      text-shadow: none;
+    }
+    .header h1 > a > img {
+        height: 1.5em;
+    }
+    .header li a {
+        color: #FFF;
+    }
+    .header li a:hover{
+      color: #FFF;
+      text-decoration:underline;
+    }
+    .menubar {
+      font-size: 1em;
+    }
+    menu a.level-1 {
+      font-size: 1em;
+    }
+    .menu a.level-3 {
+      font-size: 0.85em;
+      opacity:0.8
+    }
+    .menu a{
+      margin-right: initial;
+    }
+    a,
+    .menu a, .menu a:visited {
+      color: #E91E63;
+    }
+    a:hover,
+    .menu a:hover {
+        color: #E91E63;
+        text-decoration:underline;
+    }
+    .menu a.level-1, 
+    .menu a.level-1:visited {
+        color: rgba(52, 80, 127, 1);
+    }
+
+    .menu a.active:after {      
+      right: 0;
+      width: 9px;
+      height: 3px;
+      -webkit-border-radius: 2px;
+      border-radius: 2px;
+      background: #ea1962;
+  }
+
+    ul.level-3{
+      margin-bottom:1em;
+    }
+
+    .content h4 {
+      font-size: 1.1em;
+    }
+    .content h5 {
+      font-size: 1em;
+    }
+
+    .content i, .content em {
+        font-style: normal;
+        color: inherit;
+    }
+
+    .content h4, 
+    .content h5, 
+    .content .small-heading, 
+    body:not(.big-h3) .content h3 {
+    color: #6092e4;
+}
+    img {
+        max-width: 100%;
+    }
