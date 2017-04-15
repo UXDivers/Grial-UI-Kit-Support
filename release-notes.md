@@ -3,7 +3,7 @@
 ## Fixes
 
 - The theme synchronization task has been reimplemented to fix issues (i.e. [#166](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/166), [#164](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/164), [#161](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/161)) and add support for Shared projects too. The latter is still in beta. 
-- Fixed issue with ```UXDivers.Artiona.*``` nuget package not being correctly updated, when the update was triggered from Visual Studio.
+- Fixed issue with ```UXDivers.Artina.*``` nuget package not being correctly updated, when the update was triggered from Visual Studio.
 - Fixed issue with ```Themes.json``` (used to configure theme synchronization task) not correctly being loaded in Windows enviornments.
 - Fixed issue [#167](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/167).
 - Fixed Tab Control layout refresh issue in Android when the device was rotated within a Navigation Page.
