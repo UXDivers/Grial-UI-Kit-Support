@@ -1,5 +1,3 @@
-# Release Notes For Grial 2.0
-
 # Release Notes - Grial 2.0.52.0
 
 ## Fixes
