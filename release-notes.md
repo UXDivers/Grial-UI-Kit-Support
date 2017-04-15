@@ -1,35 +1,31 @@
-# Release Notes 
+# Release Notes XXX
 
-# Release Notes - Grial 2.0.57.0
+# Release Notes - Grial 2.0.52.0
 
 ## Fixes
 
-- The theme synchronization task has been reimplemented to fix issues (i.e. [#166](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/166), [#164](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/164), [#161](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/161)) and add support for Shared projects too (still in beta). 
-- Nuget package issue. ```.target``` not being correctly installed in the iOS project when packages where updated (only affects VS).
-- Advance Theme Sync file ```Themes.json``` was not correctly being loaded in Windows enviornments.
-- Fixed issue [#167](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/167)
-- Fixed Tab Control layout refresh issue in Android when the device was rotated within a Navigation Page
+- The theme synchronization task has been reimplemented to fix issues (i.e. [#166](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/166), [#164](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/164), [#161](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/161)) and add support for Shared projects too. The latter is still in beta. 
+- Fixed issue with ```UXDivers.Artiona.*``` nuget package not being correctly updated, when the update was triggered from Visual Studio.
+- Fixed issue with ```Themes.json``` (used to configure theme synchronization task) not correctly being loaded in Windows enviornments.
+- Fixed issue [#167](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/167).
+- Fixed Tab Control layout refresh issue in Android when the device was rotated within a Navigation Page.
 - Fixed Walkthrough layout issue
 - Improved Walkthrough implementation
 - Workaround for Entry trigger not setting back Border to the original color when focus is lost.
-- Fixed CustomNavBar Issues
+- Fixed ```CustomNavBar``` Issues
 - Workaround for Xamarin Forms bug on Android:
     *"Transparent Grid causes Java.Lang.IllegalStateException: Unable to create layer for Platform_DefaultRenderer"*
     https://bugzilla.xamarin.com/show_bug.cgi?id=51238
 - Fixed Grial namespaces to be different for .iOS and Droid projects
-- Workaround for Android bug:
-    *JniEnvironment+InstanceMethods.CallIntMethod (Java.Interop.JniObjectReference instance, Java.Interop.JniMethodInfo method)*
-    http://stackoverflow.com/questions/7575921/illegalstateexception-can-not-perform-this-action-after-onsaveinstancestate-wit
+- Added ```GrialVersion``` attribute to the ```AssemblyInfo``` to track the version of Grial sample project.
 
-Starting in this version **Themes Synchronization task** will report a warning, 
-instead of an error if something goes wrong during the synchronization process.
+Starting in this version **Themes Synchronization task** will report a warning, instead of an error if something goes wrong during the synchronization process.
 
 The behavior can be changed if needed, see [Advanced Theme Synchronization](#advanced-theme-sync-configuration) for more information.
 
 ## Modified Files In This Version
 ~~~
   Droid/Grial.Droid.csproj
-  Droid/GrialLicense
   Droid/MainActivity.cs
   Droid/packages.config
   Droid/Properties/AndroidManifest.xml
@@ -77,14 +73,16 @@ The behavior can be changed if needed, see [Advanced Theme Synchronization](#adv
   iOS/packages.config
   iOS/ThemeColors.cs
   iOS/Properties/AssemblyInfo.cs
-  iOS/Resources/Images.xcassets/AppIcons.appiconset/Contents.json
-  iOS/Resources/Images.xcassets/AppIcons.appiconset/Icon-167.png
 ~~~
 
 ## Modified Packages In This Version
-~~~
- @ToDo
-~~~
+
+The following nuget packages where updated:
+
+- ```UXDivers.Artina.Shared.Base``` to version 2.0.52.0
+- ```UXDivers.Artina.Shared``` to version 2.0.52.0
+- ```UXDivers.Artina.Controls.Tab``` to version 2.0.52.0
+- ```UXDivers.Artina.Controls.Repeater``` to version 2.0.52.0
 
 ##  <a name="advanced-theme-sync-configuration"></a> Advanced Theme Synchronization Configuration
 
