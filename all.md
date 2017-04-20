@@ -59,6 +59,11 @@ Currently Grial UI Kit adds support for:
 
 - Android 4.1+ (API Level 16) through AppCompatV7.
 - iOS 8.0+
+- Xamarin Forms:
+    - Grial 2 was released with Xamarin Forms ```2.3.3.193``` version.
+    - We will keep the product updated to latest stable versions.
+
+We recommend Xamarin Studio as main IDE for Xamarin Development.
 
 
 
@@ -91,16 +96,22 @@ Once you download the product you will get a .zip file containing 2 folders:
 
 ##  <a name="grial-first-run"></a> Grial First Run
 
-After you download your customized version of Grial, you will need to configure our private nugget packages source in order to get the needed packages to run Grial.
+After you download your customized version of Grial, 
+you will need to configure our private nuget packages source in your IDE in order to get the needed packages to run Grial.
 
-### Setting up UXDivers nugget source
+### Setting up UXDivers nuget source
+
+- In Xamarin Studio go to:
+    - Preferences > Nuget > Sources.
+
+- In Visual Studio go to:
+    - Tools > Options > Nuget Package Manager > Package Sources.
 
 ![Nuget configure sources](http://52.10.147.219/system/uploads/images/nugget_configure_sources.png)
 
 ![Nuget add sources](http://52.10.147.219/system/uploads/images/nuget_add_package_source.png)
 
 ![Nuget source added](http://52.10.147.219/system/uploads/images/grial_nuget_source_added.png)
-
 
 After adding Grial nuget source you will need to restore packages.
 
@@ -127,51 +138,176 @@ User Account > Profile > Nuget Access
 
 ### <a name="grial-license-setup"></a> Grial License Setup
 
-Starting with Grial 2.0 you will need to register your user and your app to make use of Grial.
+Grial 2.0 requires a license file in order to execute. 
+Once you purchase the product you will be redirected to the [Grial Admin website](https://uxdivers.com/secure/grial/front) where you can register your app and download its license. 
 
-After you purchase the product and register your user on [Grial Admin website](https://uxdivers.com/secure/grial/front) you will be able to configure and download your Grial UI Kit custom solutions.
+- The license is a file (named ```GrialLicense``` by default), that must be added at the root of your platform specific projects (iOS and Android). 
+- The file must have Build Action ```Embedded Resource```. 
+- The kit must be initialized  by calling method ```UXDivers.Artina.Shared.GrialKit.Init()``` before using any Grial component, passing the name of the embedded resource that contains the license. 
+Otherwise it will fail. 
 
-When you download the .zip fill containing both solutions (full and starter) the license file will be already included.
-This file (called ***"GrialLicense"***) must have a BuildAction as EmbeddedResource, and must also be present in both platform projects (iOS and Android).
+In Xamarin Forms, an embedded resource name is formed by the following scheme:
 
-#### How it works?
-The license verifies that the app name and package are the same on the license file (this is what was configured through Grial Admin and when the solution was downloaded).
+```<Default Namespace of the Container Project>.<Name of the File>```.
+	
+So, assumming the default namespace of your Android Project is:
 
-In both platforms initializations (AppDelegate.cs and MainActivity.cs) the license will be invoked using the namespace configured on Grial Admin webiste as a parameter.
+- ```MyApp.Droid``` 
 
-    Android -> UXDivers.Artina.Shared.GrialKit.Init(this, "UXDivers.Artina.Grial.GrialLicense");
-    iOS -> UXDivers.Artina.Shared.GrialKit.Init(new ThemeColors(), "UXDivers.Artina.Grial.GrialLicense");
+and the license file is called:
 
-For example:
+- ```GrialLicense``` 
 
-If your app is called ***"MySampleApp"***, after you register and download your custom Grial you will have the following on your projects:
+...you will call:
 
-    Android -> UXDivers.Artina.Shared.GrialKit.Init(this, "MySampleApp.GrialLicense");
-    iOS -> UXDivers.Artina.Shared.GrialKit.Init(new ThemeColors(), "MySampleApp.GrialLicense");
+- ```Init``` 
 
-***IMPORTANT***: In case you change your namespace through Grial admin you will need to download a ***NEW*** license and update your local "GrialLicense" file one in both projects (iOS and Android).
+...passing the name:
 
+- ```MyApp.Droid.GrialLicense``` 
 
-#### License modes
+iOS is analogus, but taking the default namespace of the iOS project.
 
-Basically there are two modes:
+**Android**
+~~~
+namespace MyApp.Droid
+{
+	...
+	public class MainActivity : FormsAppCompatActivity
+	{
+		protected override void OnCreate(Bundle bundle)
+		{
+            ...
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            ...
+~~~
 
-- Development
+**iOS**
+~~~
+namespace MyApp.iOS
+{
+	public class AppDelegate : FormsApplicationDelegate
+	{
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+		{
+			...
+			GrialKit.Init(new ThemeColors(), "MyApp.iOS.GrialLicense");
+			...
+~~~
+
+The ```Init``` method will verify that:
+
+- **Android** your app name and package name match those defined in the license.
+- **iOS** your app name and boundle identifier match those defined in the license.
+
+If any of those does not match, the license verfication will fail saying which one. 
+See [License Verification](#grial-license-verification) for a detailed explanation.
+
+The starter and full projects that can be downloaded from the [Grial Admin website](https://uxdivers.com/secure/grial/front) comes with the license in place and pre-configured.
+
+### License modes
+
+The licenses you download from [Grial Admin website](https://uxdivers.com/secure/grial/front) have two modes:
+
+- Development Mode (default)
     - This is used while things are being developed and could change.
     - Expires in 30 days. In such case, it displays an error with a link to renew and download a new one.
     - Allows to renew the license as many times as could be needed.
 
-- Production
-    - ***Once in this mode there is no way to change it back***.
-    - You use it once you are sure your project namespaces, etc., won't change. 
+- Production Mode
+    - You should switch to this mode once you are ready for production and you are sure about the final name of your app.
+    - Production licenses never expires.
+    - ***Once in this mode there is no way to change it back to development mode and you will no loger be able to edit your app info in the [Grial Admin website](https://uxdivers.com/secure/grial/front)***.
+
+Each new app you register in the Admin portal will start in Development mode.
+
+
+### <a name="grial-license-verification"></a> License Verification
+
+In **Android**, the license verification will check that:
+
+- the license's app name matches your app's name as defined in th ```AndroidManifest.xml``` and ```MainActivity.cs```.
+- the license's package name matches your app's package name as defined in the  ```AndroidManifest.xml```.
+
+The following code fragments ilustrates which values should match:
+
+**AndroidManifest.xml**
+
+~~~
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... package="ANDROID_PACKAGE_NAME" ...>
+    ...
+	<application ... android:label="ANDROID_APP_NAME" ...></application>
+	...
+</manifest>
+~~~
+
+**MainActivity.cs**
+
+~~~
+namespace MyApp.Droid
+{
+	[Activity(Label = "ANDROID_APP_NAME", ...)]
+	public class MainActivity : FormsAppCompatActivity
+	{
+		protected override void OnCreate(Bundle bundle)
+	...
+~~~
+
+In **iOS**, the license verification will check that:
+
+- the license's app name matches the name defined in the ```Info.plist``` file. 
+	- If the ```CFBundleDisplayName``` is defined it will be considered as the application's name. 
+	- If it is not defined, the ```CFBundleName``` will be used.
+- the license's bounde identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
+
+
+### Troubleshooting License Issues
+
+
+#### "Error reading license” Error Message
+
+This is displayed when there was an error reading the embedded resource passed to the ```GrialKit.Init```.
+
+That tipically means that:
+
+- the license file is not marked as ```Embedded Resource``` 
+- ...or it is not in the root of the platform specific project.
+- ...or the embedded resource is not correctly named following the covention:
+	- ```<Default Namespace of the Container Project>.<Name of the File>``` above explained.
+
+
+#### "The ... does not match the license's." Error Message/s
+
+This message is displayed with any of the following cases:
+
+- "**The Bundle Indentifier** does not match the license's." 
+- "**The Package Name** does not match the license's."
+- "**Both the appName and the Bundle Identifier/PackageName** does not match the license's."
+ 
+This means the information on the License file does not match the respective param in your solution. 
+
+In order to fix this error, follow these steps:
+
+- Double check that the information you entered in the [Grial Admin website](https://uxdivers.com/secure/grial/front) matches that in your solution. 
+	- See section [License Verification](#grial-license-verification) for details about what to check.
+- Once you are sure the info is correct download the license again and replace the license file you have in your platform specific projects.
+- Run you app and verifiy the problem is fixed.
+
+If the problem persists, it might mean that not all components were correctly updated during deployment. 
+This usually happens because in order to make things faster Xamarin deploys only what has changed, but this process some times misses stuff. 
+In order to fix this manually remove the app from the device or simulator you are targetting, then do a rebuild in your solution. Run it again and verfiy the problem is fixed.
+
+
+#### "Grial UI Kit license not initialized, please call 'UXDivers.Artina.Shared.GrialKit.Init(<license>)' before performing the LoadApplication." Error Message
+
+This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
 
 
 ### Conventions
-For your convenience we have structured the PCL project with the following folders:
+For your convenience we have structured the PCL project with the following setup:
 
        Grial
-		|_ References
-		|_ Packages
 		|_ Helpers
 		|_ Models
 		|_ Properties
@@ -307,6 +443,95 @@ This means that the iOS and/or Android projects could not be automatically found
  		“iOSProjectPath” : “<absolute path of your iOS project>”
 	}
 ```
+
+### Advanced Theme Synchronization Configuration <a name="advanced-theme-sync-configuration"></a> 
+
+Theme synchronization task can be configured using ```Themes.json``` file. 
+
+This file is just a JSON file that must be created in the same folder as the ```.csproj``` that contains the task resides. 
+The task will read that file looking for settings. 
+
+Starting from version (```2.0.52.0)```, the file **must be placed in the platform specific projects** (not the PCL as previous versions requires). 
+If you want to configure both Android and iOS you will need to add two ```Themes.json``` independent files for each project.
+
+```Themes.json``` may contain one or more of these properties (the values reflect the default value of the property if not specified at all):
+
+~~~
+  {
+    "ThemeSyncEnabled": true,
+    "AppXamlFullPath": null,
+    "AppXamlProjectFullPath": null,
+    "iOSColorsFileName": "ThemeColors.cs",
+    "AndroidColorsFile": "Resources\\values\\Colors.xml",
+    "iOSColorsNamespace": null,
+    "ThemesFolder":"Themes"
+  }
+~~~
+
+- **ThemeSyncEnabled** (```boolean```). 
+  - Default value: ```true```.
+  - If set to false, theme sync will not happen at all for the projects in the folder.
+
+- **AppXamlFullPath** (```string```).
+  - Default value: ```null```.
+  - The full path to the ```App.xaml```, if specified the task will not try to infer it.
+
+- **AppXamlProjectFullPath** (```string```).
+  - Default value: ```null```.
+  - This parameter is only considered if **AppXamlFullPath** was specified.  
+  - The parameter specifies the full path to the project that contains the ```App.xaml```. 
+  - If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
+    - If you specify both it will just stick to them.
+
+- **iOSColorsFileName** (```string```)
+  - Default value: ```"ThemeColors.cs"```.
+  - Name of the ```Colors``` file in ```iOS```, just in case someone need to change its name.
+
+- **AndroidColorsFile** (```string```) 
+  - Default value: ```"Resources\\values\\Colors.xml"```.
+  - Path of the ```Android.Colors.xaml```, just in case the default one is changed.
+
+- **iOSColorsNamespace** (```string```)
+  - Default value: ```null```.
+  - Namespace used for the ```ThemesColor class```. If not specified the ```default root namespace``` of the project will be used.
+
+- **ThemesFolder** (```string```)
+  - Default value: ```"Themes"```.
+  - Specifies the name of the ```Folder``` where ```Themes``` are stored. 
+  - This is just to optimize performance. 
+    - We try to resolve the ```Theme XAML``` against the XAMLs within this folder first. 
+    - If we don't find it we will look across the whole project.
+
+
+One final comment:
+
+- Now by default if the task fails for some reason it will report a **Warning**, not an **Error**.
+- If you still want to report an **Error**, simply add a property to your ```.csproj``` called ```GrialFailOnError``` and set it to ```true```:
+
+~~~
+  <GrialFailOnError>true</GrialFailOnError>
+~~~
+
+For example:
+
+~~~
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{45DA7B47-C579-4BC1-B1E5-97EEA0C669CD}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>UXDivers.Artina.Grial</RootNamespace>
+    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+    <AssemblyName>UXDiversArtinaGrialiOS</AssemblyName>
+    <ReleaseVersion>1.5</ReleaseVersion>
+
+    <GrialFailOnError>true</GrialFailOnError>
+
+  </PropertyGroup>
+</Project>
+~~~
 
 ## Brand Image
 
@@ -772,43 +997,170 @@ As mentioned before, Artina dlls contains most of our controls and Custom Render
   
 ### <a name="grial-license-setup"></a> Grial License Setup
 
-Starting with Grial 2.0 you will need to register your user and your app to make use of Grial.
+Grial 2.0 requires a license file in order to execute. 
+Once you purchase the product you will be redirected to the [Grial Admin website](https://uxdivers.com/secure/grial/front) where you can register your app and download its license. 
 
-After you purchase the product and register your user on [Grial Admin website](https://uxdivers.com/secure/grial/front) you will be able to configure and download your Grial UI Kit custom solutions.
+- The license is a file (named ```GrialLicense``` by default), that must be added at the root of your platform specific projects (iOS and Android). 
+- The file must have Build Action ```Embedded Resource```. 
+- The kit must be initialized  by calling method ```UXDivers.Artina.Shared.GrialKit.Init()``` before using any Grial component, passing the name of the embedded resource that contains the license. 
+Otherwise it will fail. 
 
-When you download the .zip fill containing both solutions (full and starter) the license file will be already included.
-This file (called ***"GrialLicense"***) must have a BuildAction as EmbeddedResource, and must also be present in both platform projects (iOS and Android).
+In Xamarin Forms, an embedded resource name is formed by the following scheme:
 
-#### How it works?
-The license verifies that the app name and package are the same on the license file (this is what was configured through Grial Admin and when the solution was downloaded).
+```<Default Namespace of the Container Project>.<Name of the File>```.
+	
+So, assumming the default namespace of your Android Project is:
 
-In both platforms initializations (AppDelegate.cs and MainActivity.cs) the license will be invoked using the namespace configured on Grial Admin webiste as a parameter.
+- ```MyApp.Droid``` 
 
-    Android -> UXDivers.Artina.Shared.GrialKit.Init(this, "UXDivers.Artina.Grial.GrialLicense");
-    iOS -> UXDivers.Artina.Shared.GrialKit.Init(new ThemeColors(), "UXDivers.Artina.Grial.GrialLicense");
+and the license file is called:
 
-For example:
+- ```GrialLicense``` 
 
-If your app is called ***"MySampleApp"***, after you register and download your custom Grial you will have the following on your projects:
+...you will call:
 
-    Android -> UXDivers.Artina.Shared.GrialKit.Init(this, "MySampleApp.GrialLicense");
-    iOS -> UXDivers.Artina.Shared.GrialKit.Init(new ThemeColors(), "MySampleApp.GrialLicense");
+- ```Init``` 
 
-***IMPORTANT***: In case you change your namespace through Grial admin you will need to download a ***NEW*** license and update your local "GrialLicense" file one in both projects (iOS and Android).
+...passing the name:
 
+- ```MyApp.Droid.GrialLicense``` 
 
-#### License modes
+iOS is analogus, but taking the default namespace of the iOS project.
 
-Basically there are two modes:
+**Android**
+~~~
+namespace MyApp.Droid
+{
+	...
+	public class MainActivity : FormsAppCompatActivity
+	{
+		protected override void OnCreate(Bundle bundle)
+		{
+            ...
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            ...
+~~~
 
-- Development
+**iOS**
+~~~
+namespace MyApp.iOS
+{
+	public class AppDelegate : FormsApplicationDelegate
+	{
+		public override bool FinishedLaunching (UIApplication app, NSDictionary options)
+		{
+			...
+			GrialKit.Init(new ThemeColors(), "MyApp.iOS.GrialLicense");
+			...
+~~~
+
+The ```Init``` method will verify that:
+
+- **Android** your app name and package name match those defined in the license.
+- **iOS** your app name and boundle identifier match those defined in the license.
+
+If any of those does not match, the license verfication will fail saying which one. 
+See [License Verification](#grial-license-verification) for a detailed explanation.
+
+The starter and full projects that can be downloaded from the [Grial Admin website](https://uxdivers.com/secure/grial/front) comes with the license in place and pre-configured.
+
+### License modes
+
+The licenses you download from [Grial Admin website](https://uxdivers.com/secure/grial/front) have two modes:
+
+- Development Mode (default)
     - This is used while things are being developed and could change.
     - Expires in 30 days. In such case, it displays an error with a link to renew and download a new one.
     - Allows to renew the license as many times as could be needed.
 
-- Production
-    - ***Once in this mode there is no way to change it back***.
-    - You use it once you are sure your project namespaces, etc., won't change. 
+- Production Mode
+    - You should switch to this mode once you are ready for production and you are sure about the final name of your app.
+    - Production licenses never expires.
+    - ***Once in this mode there is no way to change it back to development mode and you will no loger be able to edit your app info in the [Grial Admin website](https://uxdivers.com/secure/grial/front)***.
+
+Each new app you register in the Admin portal will start in Development mode.
+
+
+### <a name="grial-license-verification"></a> License Verification
+
+In **Android**, the license verification will check that:
+
+- the license's app name matches your app's name as defined in th ```AndroidManifest.xml``` and ```MainActivity.cs```.
+- the license's package name matches your app's package name as defined in the  ```AndroidManifest.xml```.
+
+The following code fragments ilustrates which values should match:
+
+**AndroidManifest.xml**
+
+~~~
+<?xml version="1.0" encoding="utf-8"?>
+<manifest ... package="ANDROID_PACKAGE_NAME" ...>
+    ...
+	<application ... android:label="ANDROID_APP_NAME" ...></application>
+	...
+</manifest>
+~~~
+
+**MainActivity.cs**
+
+~~~
+namespace MyApp.Droid
+{
+	[Activity(Label = "ANDROID_APP_NAME", ...)]
+	public class MainActivity : FormsAppCompatActivity
+	{
+		protected override void OnCreate(Bundle bundle)
+	...
+~~~
+
+In **iOS**, the license verification will check that:
+
+- the license's app name matches the name defined in the ```Info.plist``` file. 
+	- If the ```CFBundleDisplayName``` is defined it will be considered as the application's name. 
+	- If it is not defined, the ```CFBundleName``` will be used.
+- the license's bounde identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
+
+
+### Troubleshooting License Issues
+
+
+#### "Error reading license” Error Message
+
+This is displayed when there was an error reading the embedded resource passed to the ```GrialKit.Init```.
+
+That tipically means that:
+
+- the license file is not marked as ```Embedded Resource``` 
+- ...or it is not in the root of the platform specific project.
+- ...or the embedded resource is not correctly named following the covention:
+	- ```<Default Namespace of the Container Project>.<Name of the File>``` above explained.
+
+
+#### "The ... does not match the license's." Error Message/s
+
+This message is displayed with any of the following cases:
+
+- "**The Bundle Indentifier** does not match the license's." 
+- "**The Package Name** does not match the license's."
+- "**Both the appName and the Bundle Identifier/PackageName** does not match the license's."
+ 
+This means the information on the License file does not match the respective param in your solution. 
+
+In order to fix this error, follow these steps:
+
+- Double check that the information you entered in the [Grial Admin website](https://uxdivers.com/secure/grial/front) matches that in your solution. 
+	- See section [License Verification](#grial-license-verification) for details about what to check.
+- Once you are sure the info is correct download the license again and replace the license file you have in your platform specific projects.
+- Run you app and verifiy the problem is fixed.
+
+If the problem persists, it might mean that not all components were correctly updated during deployment. 
+This usually happens because in order to make things faster Xamarin deploys only what has changed, but this process some times misses stuff. 
+In order to fix this manually remove the app from the device or simulator you are targetting, then do a rebuild in your solution. Run it again and verfiy the problem is fixed.
+
+
+#### "Grial UI Kit license not initialized, please call 'UXDivers.Artina.Shared.GrialKit.Init(<license>)' before performing the LoadApplication." Error Message
+
+This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
 ### <a name="adding-font-icons-to-your-project"></a> Adding Font Icons To Your Project
 
 
