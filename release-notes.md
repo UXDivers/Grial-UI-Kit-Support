@@ -1,6 +1,7 @@
 # Release Notes - Grial 2.0.60.0
 
-This update has three main goals: 
+This update has three main goals:
+
 1. Compatibility with ```Xamarin Froms 2.3.4```. 
 2. Improved integration with ```Gorilla Player```. 
 3. Bug fixes and other improvements.
