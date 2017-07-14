@@ -1,3 +1,145 @@
+# Release Notes - Grial 2.0.60.0
+
+This update has three main goals: 
+1. Compatibility with ```Xamarin Froms 2.3.4```. 
+2. Improved integration with ```Gorilla Player```. 
+3. Bug fixes and other improvements.
+
+```Grial 2.0.60.0``` is based on ```Xamarin Froms 2.3.4.247```. ```Xamarin Froms 2.3.4``` introduced a bug that may affect any app that uses the ```MergedWith``` property of ```ResourceDictionaries```, like Grial does. The bug has been reported [here](https://bugzilla.xamarin.com/show_bug.cgi?id=56030). It has been fixed but still it is not available in the stable channel. In the context of Grial, the bug only affects how colors are resolved, specially the "AccentColor" color. A workaround has been implemented to avoid the bug, which mainly consists of changing the order in which the accent color is defined in the themes XAML files.
+
+Starting in this version you can download Grial preconfigured to preview it using [Gorilla Player](http://www.gorillaplayer.com). This will allow you to go faster than ever building your app. The Gorilla Ready solution cames with the [Gorilla SDK](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Gorilla-SDK) integrated + the ```DesignTimeData.json``` with all the design time data required to preview Grial. The Gorilla Ready solution is available as a new option of the **Download dropdown** in [MyApps page](https://uxdivers.com/secure/grial/front/index.html#/myapps) of the [Grial Admin](https://uxdivers.com/secure/grial/front). Please notice that it requries [```Gorilla Player 1.0.0.11```](http://blog.uxdivers.com/release-notes-gorilla-player-1-0) to be installed in your computer and IDE. 
+
+## Fixes/Changes Shared Nuget Packages
+
+- Fixed Memory Leak Responsive Helpers
+- The following Responsive Helpers has been marked as obsolete: ```OnScreenSizeDouble```, ```OnScreenSizeInt```, ```StylePerSize```, ```HiddenPerSize```, ```IsExtraSmallScreen```, ```IsLargeScreen```, ```IsMediumScreen```, ```IsNotExtraSmallScreen```, ```IsNotLargeScreen```, ```IsNotMediumScreen```, ```IsNotSmallScreen```, ```IsSizeScreenBase```, ```IsSmallScreen``` and ```VisiblePerSize```.
+- Fixed bug in the ```GridOptionsView```. ```ItemClickCommand``` command was not correctly associated in some cases.
+- Added ```ItemWidthAuto``` and ```ItemHeightAuto``` properties to the ```GridOptionsView``` that allows grid cells to dimension based on its content.
+- Added support for ```ObservableCollection``` to the ```Repeater``` control.
+- Fixed issue with ```Repeater.ItemSource``` property not being correctly refreshed in some cases.
+
+- **Breaking change** Removed iOS Navigation Bar customization through using iOS Appearance API. Now this is done directly from XAML using Xamarin Forms. If you update the nuget packages but not the solution template you will need to create an implicit style for the ```NavigationBar``` and add it to the ```App.xaml```, as shown in the following snippet.
+
+~~~~
+<Style TargetType="NavigationPage">
+   <Setter Property="BarBackgroundColor" Value="{ DynamicResource AccentColor }" />
+   <Setter Property="BarTextColor" Value="{ DynamicResource InverseTextColor }" />
+</Style>
+~~~~
+
+## Fixes in the Grial Solution
+
+- Added ```windowActionModeOverlay``` property to android theme so context menus are property displayed.
+- Fixed ```TabControl``` font size issue in the ```TabControlSamplePage.xaml``` sample page.
+- Renamed ```SampleData.json``` to ```DesignTimeData.json```.
+- Added missing design time data in several samples to improve Gorilla Player preview experience.
+- Replaced ```DashboardTemplateSelector``` with the generic ```BoolMemberTemplateSelector``` in the ```DashboardMultipleTilesPage```.
+- Replaced some unnecessary ```DynamicResource``` with ```StaticResource```. Now only colors uses ```DynamicResource```, the rest of the resources are resolved with ```StaticResource```.
+
+## Gorilla Ready
+
+The Gorilla Ready solution cames with an additional configuration (besides ```Debug```/```Release```) called ```Gorilla```. If you run your app using this configuration your app will start in preview mode. That means that you will see Gorilla Player starting instead of your app. Once you connect with the Gorilla Server you will be able to start previewing and you normally do with the standard Gorilla Player app.
+
+## Modified Files In This Version
+
+~~~
+Droid/Grial.Droid.csproj
+Droid/MainActivity.cs
+Droid/Resources/Resource.designer.cs
+Droid/Resources/values-v21/Style.xml
+Droid/Resources/values/Colors.xml
+Droid/Resources/values/Style.xml
+Droid/packages.config
+Grial.sln
+Grial/App.xaml
+Grial/DesignTimeData.json
+Grial/Gorilla.json
+Grial/GorillaSdkHelper.cs
+Grial/Grial.csproj
+Grial/Helpers/FontawesomeFont.cs
+Grial/Helpers/NotificationColorConverter.cs
+Grial/Models/Message.cs
+Grial/Themes/GrialDarkTheme.xaml
+Grial/Themes/GrialEnterpriseTheme.xaml
+Grial/Themes/GrialLightTheme.xaml
+Grial/Views/Articles/ArticleViewPage.xaml
+Grial/Views/Articles/ArticlesClassicViewPage.xaml
+Grial/Views/Articles/ArticlesListVariantPage.xaml
+Grial/Views/Common/BrandBlock.xaml
+Grial/Views/Common/CustomActivityIndicator.xaml
+Grial/Views/Common/CustomNavBar.xaml
+Grial/Views/Common/Rating.xaml
+Grial/Views/Dashboards/DashboardMultipleTilesPage.xaml
+Grial/Views/Dashboards/Templates/DashboardAppNotificationItemTemplate.xaml
+Grial/Views/Dashboards/Templates/DashboardCardItemTemplate.xaml
+Grial/Views/Dashboards/Templates/DashboardItemTemplate.xaml
+Grial/Views/Dashboards/Templates/DashboardItemTemplateBase.cs
+Grial/Views/Dashboards/Templates/DashboardMultipleScrollMainItemTemplate.xaml
+Grial/Views/Ecommerce/ProductItemFullScreenPage.xaml
+Grial/Views/Ecommerce/ProductItemViewPage.xaml
+Grial/Views/Ecommerce/ProductOrder.xaml
+Grial/Views/Ecommerce/Templates/ProductGridItemTemplate.xaml
+Grial/Views/Ecommerce/Templates/ProductsCatalogItemTemplate.xaml
+Grial/Views/Logins/LoginPage.xaml
+Grial/Views/Logins/PasswordRecoveryPage.xaml
+Grial/Views/Logins/SignUpPage.xaml
+Grial/Views/Logins/SimpleLoginPage.xaml
+Grial/Views/Logins/SimpleSignUpPage.xaml
+Grial/Views/Messages/ChatMessagesListPage.xaml
+Grial/Views/Messages/ChatTimelinePage.xaml
+Grial/Views/Messages/Selectors/ChatTemplateSelector.cs
+Grial/Views/Messages/Templates/ChatRightMessageItemTemplate.xaml
+Grial/Views/Messages/Templates/RecentChatItemTemplate.xaml
+Grial/Views/Navigation/CustomNavBarPage.xaml
+Grial/Views/Navigation/EmptyStatePage.xaml
+Grial/Views/Navigation/MainMenuPage.xaml
+Grial/Views/Navigation/SamplesListFromCategoryPage.xaml
+Grial/Views/Navigation/Templates/CardsListItemTemplate.xaml
+Grial/Views/Navigation/Templates/CategoriesListWithIconsItemTemplate.xaml
+Grial/Views/Navigation/Templates/MainMenuGroupHeaderTemplate.xaml
+Grial/Views/Navigation/Templates/MainMenuItemTemplate.xaml
+Grial/Views/Navigation/Templates/NotificationsListItemTemplate.xaml
+Grial/Views/Navigation/Templates/SamplesListFromCategoryItemTemplate.xaml
+Grial/Views/Navigation/WelcomePage.xaml
+Grial/Views/Settings/CustomSettingsPage.xaml
+Grial/Views/Settings/SettingsPage.xaml
+Grial/Views/Social/DocumentTimelinePage.xaml
+Grial/Views/Social/Selectors/DocumentTimelineSelector.cs
+Grial/Views/Social/Templates/DocumentTimelineLeftItemTemplate.xaml
+Grial/Views/Social/Templates/DocumentTimelineRightItemTemplate.xaml
+Grial/Views/Social/Templates/TimelineItemTemplate.xaml
+Grial/Views/Social/TimelinePage.xaml
+Grial/Views/Theme/AnimationsPage.xaml
+Grial/Views/Theme/CommonViewsPage.xaml
+Grial/Views/Theme/CustomRenderersPage.xaml
+Grial/Views/Theme/IconsPage.xaml
+Grial/Views/Theme/TabControlSamplePage.xaml
+Grial/Views/Theme/ThemePage.xaml
+Grial/Views/Walkthroughs/Templates/WalkthroughFlatStepItemTemplate.xaml
+Grial/Views/Walkthroughs/Templates/WalkthroughGradientItemTemplate.xaml
+Grial/Views/Walkthroughs/Templates/WalkthroughStepItemTemplate.xaml
+Grial/Views/Walkthroughs/Templates/WalkthroughVariantStepItemTemplate.xaml
+Grial/Views/Walkthroughs/Templates/WalkthroughVariantStepItemTemplate.xaml.cs
+Grial/Views/Walkthroughs/WalkthroughVariantPage.xaml
+Grial/packages.config
+iOS/AppDelegate.cs
+iOS/Grial.iOS.csproj
+iOS/ThemeColors.cs
+iOS/packages.config
+~~~
+
+## Modified Packages In This Version
+
+The following nuget packages where updated:
+
+- ```UXDivers.Artina.Shared.Base``` to version 2.0.60.0
+- ```UXDivers.Artina.Shared``` to version 2.0.60.0
+- ```UXDivers.Artina.Controls.Tab``` to version 2.0.60.0
+- ```UXDivers.Artina.Controls.Repeater``` to version 2.0.60.0
+
+
+---
+
 # Release Notes - Grial 2.0.52.0
 
 ## Fixes
