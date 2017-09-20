@@ -107,7 +107,15 @@ you will need to configure our private nuget packages source in your IDE in orde
 - In Visual Studio go to:
     - Tools > Options > Nuget Package Manager > Package Sources.
 
+
 ![Nuget configure sources](http://52.10.147.219/system/uploads/images/nugget_configure_sources.png)
+
+**IMPORTANT**
+
+You will need to use this URL as location:
+
+http://nuget.uxdivers.com/grial
+
 
 ![Nuget add sources](http://52.10.147.219/system/uploads/images/nuget_add_package_source.png)
 
