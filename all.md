@@ -1,152 +1,189 @@
-## Grial 2.0 Overview
+
+
+#<a name="grial" href="#grial" class="iconTitle">Grial UIKit Overview</a>
 
 ![Grial](http://52.10.147.219/system/uploads/images/grial_2_hero.png)
 
-Grial offers a set of beautiful XAML UI views made for Xamarin Forms. These cover the most typical Mobile UI patterns and crafted with developers in mind. 
+Grial offers a set of beautiful XAML UI views made for Xamarin Forms. These cover the most typical Mobile UI patterns and are crafted with developers in mind. 
 
-We use the MVVM pattern, but Grial is agnostic, meaning it is not bound to any specific MVVM framework.
+Grial is based on the MVVM pattern ensuring a clear separation between the UI and the viewmodels through data bindings. Also, Grial is framework agnostic so you can choose any MVVM framework you feel comfortable with.
 
-We provide easy way to focus on logic and to “almost forget” about the UI work by providing:
+We provide an easy way to focus on the business logic and _almost forget_ about the UI by providing:
 
-- ready made views
+- ready-made views
 - templates
 - bindings
 - models and viewmodels
 - and styling through a customizable theme
 
-Grial is based on Artina, our library of custom renderers and UI controls.
+Grial is based on Artina, our library of custom renderers and UI controls for Xamarin Forms.
 
-### Need help? ###
+<div class="new">
+Starting from version 2.5 Grial now supports RTL! <br /> Get all our 70+ pages and templates RTL enabled!
+<p>
+    Check more details about [Grial RTL](rtl-page.html).
+</p>
+</div>
+
+### Need help?
 Please [visit Grial support website](https://github.com/UXDivers/Grial-UI-Kit-Support-And-Issues).
 
 We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
-### Grial 2.0 New Features
+
+### Grial 2.5 New Features
+
+- Localization support through regular RESX files consumables from Xaml through our extensions, see [i18n](i18n-page.html).
+- Support for Right-to-left layouts in every page and template, see [Grial RTL](rtl-page.html).
+- WrapPanel layout that allow elements to flow in an HTML-like fashion (used in `MovieSelectionPage.xaml`).
+- Circle buttons.
+
+### Grial 2.0 Features
 
 - Easier project setup
-    - Grial online admin allows to download your customized Grial Sample using your own namespaces and assembly names, saving lot of time with setup
-    - Grial Starter 
-        - Bare minimum Grial project with your namespaces and assemblies 
+	- Grial online admin allows to download your customized Grial Sample using your own namespaces and assembly names, saving lot of time with setup
+	- Grial Starter 
+		- Bare minimum Grial project with your namespaces and assemblies 
 - Responsive features
-    - Added Responsive helpers
-        - Take full control of how things layout on pages, different devices, orientations and platforms
-        - Tablet optimized experience
-    - Responsive Android and iOS Splash pages
+	- Added Responsive helpers
+		- Take full control of how things layout on pages, different devices, orientations and platforms
+		- Tablet optimized experience
+	- Responsive Android and iOS Splash pages
 - New themes
-    - 3 new themes
-    - Added support for merged dictionaries
-    - Added build task to ease colors compilation
+	- 3 new themes
+	- Added support for merged dictionaries
+	- Added build task to ease colors compilation
 - Icons 
-    - New icons
-        - New default base font (grialshapes)
-        - [Fontawesome 4.7](http://fontawesome.io/icons/) and [Ionicicons 2.0.0](http://ionicons.com/cheatsheet.html) fonts
-        - [Font helpers](#font-helpers) for easier icons referencing in your code
-    - Easier icons setup through font helpers
+	- New icons
+		- New default base font (grialshapes)
+		- [Fontawesome 4.7](http://fontawesome.io/icons/) and [Ionicicons 2.0.0](http://ionicons.com/cheatsheet.html) fonts
+		- [Font helpers](#font-helpers) for easier icons referencing in your code
+	- Easier icons setup through font helpers
 - Improved documentation
 - New UI Controls 
-    - RoundedLabel
-    - artina Repeater
-    - artina TabControl (available on Grial Pro)
+	- RoundedLabel
+	- artina Repeater
+	- artina TabControl (available on Grial Pro)
 - [Lottie animations support](https://github.com/martijn00/LottieXamarin)
 - Better and more efficient images support through [FFImageLoading](https://github.com/luberda-molinet/FFImageLoading)
 - More screens
 
 
+### Release Notes 
+
+Full Grial release notes are [here](./release-notes.html).
 ### Supported Platforms
 
-Currently Grial UI Kit adds support for:
+Grial UIKit supports:
 
-- Android 4.1+ (API Level 16) through AppCompatV7.
-- iOS 8.0+
+- Android 4.2+ (API Level 17) through AppCompatV7.
+- iOS 9.0+
 - Xamarin Forms:
-    - Grial 2 was released with Xamarin Forms ```2.3.3.193``` version.
+    - Grial 2.5 was released with Xamarin Forms `2.3.4.270` version.
     - We will keep the product updated to latest stable versions.
+    - Artina packages require `2.3.1.144+`.
 
-We recommend Xamarin Studio as main IDE for Xamarin Development.
-
-
-
-
-## Release Notes 
-
-[Check Grial Release Notes](./release-notes.html)
 
 
 ##<a name="grial-download"></a> Downloading Grial
 
-When you purchase Grial you received and email with the link to [Grial admin](https://uxdivers.com/secure/grial/front), our online site where you:
+Right after purchasing Grial you receive an email with a link to [Grial Admin](https://uxdivers.com/secure/grial/front) where you can:
 
-- Register your user
-- Configure and download your Grial projects (Customized sample and/or Grial Starter)
-- Administrate your Grial licenses
+- Register your user and claim your license
+- Administrate your licenses
+- Customize and download Grial
 
-Once you download the product you will get a .zip file containing 2 folders:
+Grial license is App-based. Once you create an Application associated to a Grial license in **Grial Admin** you can configure settings like
+project name, namespaces, iOS bundle id, android package name, cultures, etc.
 
-    |_ <YourAppName.zip>
-        |_ full
-        |_ starter
+Once you have finished the customization you can download a zip with two Visual Studio solutions:
 
-- ***full***
-    - This is a copy of Grial 2.0 sample app customized with your app name, assembly name, etc.
-    - It contains every file used in our demo.
+	|_ <YourAppName.zip>
+		|_ full
+		|_ starter
 
-- ***starter***
-    - This is just the minimum setup of your customized Grial for you to start working with.
+- **Full Grial solution**
+	- A copy of Grial sample app (70+ screens and templates) customized with your app name, assembly name, etc.
+- **Grial Starter solution**
+	- Bare-minimum Grial-ready solution to start coding your project where you can incrementally include pages and templates from Grial.
+
+
+<div class="highlight">
+Grial Admin let's you download both full and the starter projects anytime from your Applications page through the `Download` dropdown.
+</div>
+
 
 ##  <a name="grial-first-run"></a> Grial First Run
 
-After you download your customized version of Grial, 
-you will need to configure our private nuget packages source in your IDE in order to get the needed packages to run Grial.
+Once you download Grial, there's just one more step to follow before you can compiling. 
+Grial uses packages hosted in our private nuget package source. You need to configure that nuget source in your IDE of choice.
 
-### Setting up UXDivers nuget source
+### Setting up UXDivers Nuget Source
 
-- In Xamarin Studio go to:
-    - Preferences > Nuget > Sources.
+- In Visual Studio go to
 
-- In Visual Studio go to:
-    - Tools > Options > Nuget Package Manager > Package Sources.
+```
+Tools > Options > Nuget Package Manager > Package Sources
+```
 
+- In Visual Studio for Mac / Xamarin Studio go to:
+
+```
+Preferences > Nuget > Sources
+```
 
 ![Nuget configure sources](http://52.10.147.219/system/uploads/images/nugget_configure_sources.png)
+
 
 **IMPORTANT**
 
 You will need to use this URL as location:
 
+```
 http://nuget.uxdivers.com/grial
+```
 
+You will also need your user and password for [Grial Admin](https://uxdivers.com/secure/grial/front) to authenticate.
+
+<div class="highlight">
+You can define a shared user/password just to access the private nuget source so you don't need to share your credential with your team. 
+
+<br/>
+For more information please check [Nuget Access Setup on Grial Admin](#nuget-access-setup) section.
+
+</div>
 
 ![Nuget add sources](http://52.10.147.219/system/uploads/images/nuget_add_package_source.png)
 
 ![Nuget source added](http://52.10.147.219/system/uploads/images/grial_nuget_source_added.png)
 
-After adding Grial nuget source you will need to restore packages.
+**Very Important**
+
+Once the Grial nuget source is configured you will need to **restore** the solution packages.
 
 
 ### <a name="nuget-access-setup"></a> Nuget Access Setup on Grial Admin
 
-Grial 2.0 requires to setup a private Nuget source to get its packages.
+You can use your own credentials to access the private Nuget source. 
+Additionally, you can configure a dedicated nuget user to authenticate against the nuget server.
+This is the way to go if you need to share the credentials with your team or use them in your CI build.
 
-Most of the cases you will use your Grial Admin credentials to authenticate.
-
-Additionally, you can configure a dedicated nuget user to authenticate against the nuget server. You can share its credentials with your team and/or use them in your CI build servers.
-
-To change this go to Grial Admin and then:
+To setup the Nuget credentials go to [Grial Admin](https://uxdivers.com/secure/grial/front):
 
 ```
 User Account > Profile > Nuget Access
 ```
 
-** NOTE:** This can only be used to authenticate against the nuget server.
+<img class="image-with-border" src="http://52.10.147.219/system/uploads/images/grial_admin_nuget_config.png" alt="" />
 
-![](http://52.10.147.219/system/uploads/images/grial_admin_nuget_config.png)
+** NOTE:** This credential can only be used to authenticate against the nuget server.
 
 
 
 ### <a name="grial-license-setup"></a> Grial License Setup
 
-Grial 2.0 requires a license file in order to execute. 
+Grial requires a license file in order to execute. 
 Once you purchase the product you will be redirected to the [Grial Admin website](https://uxdivers.com/secure/grial/front) where you can register your app and download its license. 
 
 - The license is a file (named ```GrialLicense``` by default), that must be added at the root of your platform specific projects (iOS and Android). 
@@ -158,21 +195,9 @@ In Xamarin Forms, an embedded resource name is formed by the following scheme:
 
 ```<Default Namespace of the Container Project>.<Name of the File>```.
 	
-So, assumming the default namespace of your Android Project is:
-
-- ```MyApp.Droid``` 
-
-and the license file is called:
-
-- ```GrialLicense``` 
-
-...you will call:
-
-- ```Init``` 
-
-...passing the name:
-
-- ```MyApp.Droid.GrialLicense``` 
+So, assumming the default namespace of your Android Project is ```MyApp.Droid``` and the license file is called ```GrialLicense``` 
+you will call ```Init``` 
+passing the name ```MyApp.Droid.GrialLicense``` 
 
 iOS is analogus, but taking the default namespace of the iOS project.
 
@@ -202,11 +227,13 @@ namespace MyApp.iOS
 			GrialKit.Init(new ThemeColors(), "MyApp.iOS.GrialLicense");
 			...
 ~~~
-
 The ```Init``` method will verify that:
 
 - **Android** your app name and package name match those defined in the license.
 - **iOS** your app name and boundle identifier match those defined in the license.
+
+**Important:** if your Application is localized the license check also verifies the 
+localized names you define in Grial Admin, see [localization section](/i18n-page.html).
 
 If any of those does not match, the license verfication will fail saying which one. 
 See [License Verification](#grial-license-verification) for a detailed explanation.
@@ -218,24 +245,25 @@ The starter and full projects that can be downloaded from the [Grial Admin websi
 The licenses you download from [Grial Admin website](https://uxdivers.com/secure/grial/front) have two modes:
 
 - Development Mode (default)
-    - This is used while things are being developed and could change.
-    - Expires in 30 days. In such case, it displays an error with a link to renew and download a new one.
-    - Allows to renew the license as many times as could be needed.
+    - This is ment while things are being developed and may change.
+    - Expires 30 days after the generation date. In such case, it displays an error with a link to renew and download a new one.
+    - Can be renewed anytime to get another 30.
 
 - Production Mode
-    - You should switch to this mode once you are ready for production and you are sure about the final name of your app.
-    - Production licenses never expires.
+    - You should switch to this mode once you are ready to publish the app and you are sure about the final name, android package and iOS bundle identifier of your app.
+    - Production licenses never expire.
     - ***Once in this mode there is no way to change it back to development mode and you will no loger be able to edit your app info in the [Grial Admin website](https://uxdivers.com/secure/grial/front)***.
 
-Each new app you register in the Admin portal will start in Development mode.
+New registered apps in the Admin portal starts in Development mode, of course.
 
 
 ### <a name="grial-license-verification"></a> License Verification
 
 In **Android**, the license verification will check that:
 
-- the license's app name matches your app's name as defined in th ```AndroidManifest.xml``` and ```MainActivity.cs```.
-- the license's package name matches your app's package name as defined in the  ```AndroidManifest.xml```.
+- the license's app name matches your app name as defined in the `AndroidManifest.xml` and `MainActivity.cs`. Note that the name may 
+depend upon the culture if you have a localized app (read more on the [localization section](/i18n-page.html)).
+- the license's package name matches your app's package name as defined in the  `AndroidManifest.xml`.
 
 The following code fragments ilustrates which values should match:
 
@@ -245,7 +273,7 @@ The following code fragments ilustrates which values should match:
 <?xml version="1.0" encoding="utf-8"?>
 <manifest ... package="ANDROID_PACKAGE_NAME" ...>
     ...
-	<application ... android:label="ANDROID_APP_NAME" ...></application>
+	<application ... android:label="@string/app_name" ...></application>
 	...
 </manifest>
 ~~~
@@ -255,20 +283,47 @@ The following code fragments ilustrates which values should match:
 ~~~
 namespace MyApp.Droid
 {
-	[Activity(Label = "ANDROID_APP_NAME", ...)]
+	[Activity(Label = @string/app_name, ...)]
 	public class MainActivity : FormsAppCompatActivity
 	{
 		protected override void OnCreate(Bundle bundle)
 	...
 ~~~
 
+Application name is declared through `@string/app_name`. This is a localized Android string that defines the application name. The actual
+value of the string is defined in the `Strings.xml` resource file:
+
+![Android languages](http://52.10.147.219/system/uploads/images/droid-lang-folders.png)
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<string name="app_name">My App Name</string>
+</resources>
+```
+
+If you define multiple cultures in Grial Admin you will see multiple `value-CULTURE` folders (in the image above `-ar` stands for Arabic), each with the specific name you pick. 
+If the app is not localized, only one Strings file under `values` folder will exist and will be the one containing the name. 
+
+**In case the Application is localized**, the check will verify that the runtime name matches the one defined in the license for the current culture.
+
+
 In **iOS**, the license verification will check that:
 
 - the license's app name matches the name defined in the ```Info.plist``` file. 
 	- If the ```CFBundleDisplayName``` is defined it will be considered as the application's name. 
 	- If it is not defined, the ```CFBundleName``` will be used.
-- the license's bounde identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
+	- Note that the name may depend upon the culture if you have a localized app (read more on the [localization section](/i18n-page.html)).
+- the license's boundle identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
 
+In case you have a localized app defined in Grial Admin, you will see multiple ```Info.plist``` alternative files:
+
+![Android languages](http://52.10.147.219/system/uploads/images/ios-lang-folders.png)
+
+Each file defines ```CFBundleDisplayName``` and ```CFBundleName``` for the specific culture defined by the folder name. In the image 
+above `en` stands for English and `ar` for Arabic. 
+
+**In case the Application is localized**, the check will verify that the runtime display name (or name when display name is not defined) matches the one defined in the license for the current culture.
 
 ### Troubleshooting License Issues
 
@@ -311,27 +366,57 @@ In order to fix this manually remove the app from the device or simulator you ar
 
 This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
 
-
 ### Conventions
 For your convenience we have structured the PCL project with the following setup:
 
-       Grial
+	Grial
 		|_ Helpers
 		|_ Models
 		|_ Properties
+		|_ Resx
 		|_ Themes
-		|_ ViewModel
+		|_ ViewModels
 		|_ Views
 
+<div class="new">
+	Resx folder added on **Grial 2.5** for internationalization support.
+	
+	For more info please refer to [Grial Internationalization](/i18n-page.html).
+</div>
 
-## Theme And Branding Of Your App
+
+##<a name="gorilla-player"></a> Previewing Grial with Gorilla Player
+
+[Gorilla Player](http://gorillaplayer.com/) is a great tool for immediate previewing and debugging Xaml code.
+
+Grial Admin offers the option to [download Grial](#grial-uikit-overview-downloading-grial) with Gorilla Player 
+pre-configured.
+
+![Download Grial](http://52.10.147.219/system/uploads/images/download-options.png)
+
+If you choose the `Gorilla Ready` options the downloaded VS solution will have a `Build Configuration` named `Gorilla` that 
+you can use to compile and run your project in any device and debug your Xaml with no need to compile a second time.
+
+![Gorilla Build Config](http://52.10.147.219/system/uploads/images/gorilla-config.png)
+
+Follow these steps:
+
+1. Dowload and install Gorilla Player: http://gorillaplayer.com/
+2. Run Gorilla Player
+3. Run your project under Gorilla Configuration
+
+For more information on Gorilla Player config and setup please check [here](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Getting-Started).
+
+Gorilla also helps to work with [Grial localized apps](/i18n-page.html) and [RTL layouts](/rtl-page.html).
+
+##<a name="theme-and-branding-of-your-app" href="#theme-and-branding-of-your-app" class="iconTitle">Theme And Branding Of Your App</a>
 
 Grial offers a simple way to customize the look and feel by providing an easy and extensible theme architecture. 
 It provides several colors and styles that will ease your UI tweaks through platforms and achieving a consistent look and feel for your app.
 
 To start customizing your app's look and feel, please refer to **App.xaml** file located on the Grial (PCL) folder project:
 
-       Grial
+	Grial
 		|_ App.xaml
 
 Inside the file you will find basically two main things:
@@ -363,22 +448,19 @@ A single resource dictionary (```local:GrialLightTheme```, is the Grial default 
 There are 3 available themes you can use for your app:
 
 #### **Light** (GrialLightTheme.xaml)
-- ![](http://52.10.147.219/system/uploads/images/light0.png)
-- ![](http://52.10.147.219/system/uploads/images/light1.png)
-- ![](http://52.10.147.219/system/uploads/images/light2.png)
+
+![Grial Light Theme](http://52.10.147.219/system/uploads/images/light_theme.jpg)
 
 
 
 #### **Dark** (GrialDarkTheme.xaml)
-- ![](http://52.10.147.219/system/uploads/images/dark0.png)
-- ![](http://52.10.147.219/system/uploads/images/dark1.png)
-- ![](http://52.10.147.219/system/uploads/images/dark2.png)
+
+![Grial Dark Theme](http://52.10.147.219/system/uploads/images/dark_theme.jpg)
 
 
 #### **Enterprise** (GrialEnterpriseTheme.xaml)
-- ![](http://52.10.147.219/system/uploads/images/enterprise0.png)
-- ![](http://52.10.147.219/system/uploads/images/enterprise1.png)
-- ![](http://52.10.147.219/system/uploads/images/enterprise2.png)
+
+![Grial Enterprise Theme](http://52.10.147.219/system/uploads/images/enterprise_theme.jpg)
 
 These can be used as the starting point for your own theme.
 An additional theme which is actually a copy of ```Grial Default theme``` (Light) is also provided so you can start working on that theme without changing the default ones:
@@ -391,7 +473,7 @@ If you want to change the current theme of your app, simply point the ```MergedW
 
 You can find the provided themes on the following location on your Grial PCL project: 
 
-       Grial
+	Grial
 		|_ Themes
 			|_ GrialLightTheme.xaml
 			|_ GrialDarkTheme.xaml
@@ -409,11 +491,12 @@ The theme is made with a "Top Down" approach, so the deeper you go into the them
 ### Compiling Themes
 
 **Important**: Due to some limitations on Xamarin Forms it is not possible to style everything right from ```App.xaml```. 
-That is the reason why when running our sample you can see most of the colors change but not the Navigaton Bar.
+That is the reason why when running our sample you can see most of the colors change when you change the current theme at runtime, but not the ListView selected items and some custom renderers.
 
 In Grial 2.0 we have added a new, easier and more reliable mechanism to compile theme colors on iOS and Android projects.
 
-This is made through a ```Build Task``` so the process is transparent.
+This is made through a ```Build Task``` so the process is transparent. 
+This build task is automatically added to your project when you include ```UXDivers.Artina.Shared``` nuget packages in your project.
 
 All you need to do is to set the theme on ```App.xaml``` through the ```MergedWith``` property, then the build task will:
 
@@ -422,35 +505,6 @@ All you need to do is to set the theme on ```App.xaml``` through the ```MergedWi
  - ```ThemeColors.cs``` on the iOS project
 
 That way you will have everything in sync and only need to focus on the theme colors.
-
-### Troubleshooting Themes Compilation
-If your ```App.xaml``` file is not found, neither any xaml file whose root node is ```<Application>``` you will see the following warning on your build output:
-
-***“Can’t find App.xaml file in ```<your_project>```. Aborting.”***
-
-In order to instruct the build task the right path to your ```App.xaml``` or equivalent file, you will need to:
-
-- Add a ***"Themes.json"*** file on your PCL project folder
-- This file must exist in the file system but not necesarily on the project
-- Add the following:
-
-```
-	{
-		“AppXAMLPath” : “<absolute path of App.xaml in your project>” 
-	}
-```
-Another possible output error from the build task can be:
-
-*** "Unable to infer associated platform specific projects." ***
-
-This means that the iOS and/or Android projects could not be automatically found, then, you must specify where are they located through these settings also on "Themes.json" file:
-
-```
-	{
-		“AndroidProjectPath” : “<absolute path of your Android project>”,
- 		“iOSProjectPath” : “<absolute path of your iOS project>”
-	}
-```
 
 ### Advanced Theme Synchronization Configuration <a name="advanced-theme-sync-configuration"></a> 
 
@@ -465,50 +519,50 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 ```Themes.json``` may contain one or more of these properties (the values reflect the default value of the property if not specified at all):
 
 ~~~
-  {
-    "ThemeSyncEnabled": true,
-    "AppXamlFullPath": null,
-    "AppXamlProjectFullPath": null,
-    "iOSColorsFileName": "ThemeColors.cs",
-    "AndroidColorsFile": "Resources\\values\\Colors.xml",
-    "iOSColorsNamespace": null,
-    "ThemesFolder":"Themes"
-  }
+	{
+		"ThemeSyncEnabled": true,
+		"AppXamlFullPath": null,
+		"AppXamlProjectFullPath": null,
+		"iOSColorsFileName": "ThemeColors.cs",
+		"AndroidColorsFile": "Resources\\values\\Colors.xml",
+		"iOSColorsNamespace": null,
+		"ThemesFolder":"Themes"
+	}
 ~~~
 
 - **ThemeSyncEnabled** (```boolean```). 
-  - Default value: ```true```.
-  - If set to false, theme sync will not happen at all for the projects in the folder.
+	- Default value: ```true```.
+	- If set to false, theme sync will not happen at all for the projects in the folder.
 
 - **AppXamlFullPath** (```string```).
-  - Default value: ```null```.
-  - The full path to the ```App.xaml```, if specified the task will not try to infer it.
+	- Default value: ```null```.
+	- The full path to the ```App.xaml```, if specified the task will not try to infer it.
 
 - **AppXamlProjectFullPath** (```string```).
-  - Default value: ```null```.
-  - This parameter is only considered if **AppXamlFullPath** was specified.  
-  - The parameter specifies the full path to the project that contains the ```App.xaml```. 
-  - If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
-    - If you specify both it will just stick to them.
+	- Default value: ```null```.
+	- This parameter is only considered if **AppXamlFullPath** was specified.  
+	- The parameter specifies the full path to the project that contains the ```App.xaml```. 
+	- If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
+		- If you specify both it will just stick to them.
 
 - **iOSColorsFileName** (```string```)
-  - Default value: ```"ThemeColors.cs"```.
-  - Name of the ```Colors``` file in ```iOS```, just in case someone need to change its name.
+	- Default value: ```"ThemeColors.cs"```.
+	- Name of the ```Colors``` file in ```iOS```, just in case someone need to change its name.
 
 - **AndroidColorsFile** (```string```) 
-  - Default value: ```"Resources\\values\\Colors.xml"```.
-  - Path of the ```Android.Colors.xaml```, just in case the default one is changed.
+	- Default value: ```"Resources\\values\\Colors.xml"```.
+	- Path of the ```Android.Colors.xaml```, just in case the default one is changed.
 
 - **iOSColorsNamespace** (```string```)
-  - Default value: ```null```.
-  - Namespace used for the ```ThemesColor class```. If not specified the ```default root namespace``` of the project will be used.
+	- Default value: ```null```.
+	- Namespace used for the ```ThemesColor class```. If not specified the ```default root namespace``` of the project will be used.
 
 - **ThemesFolder** (```string```)
-  - Default value: ```"Themes"```.
-  - Specifies the name of the ```Folder``` where ```Themes``` are stored. 
-  - This is just to optimize performance. 
-    - We try to resolve the ```Theme XAML``` against the XAMLs within this folder first. 
-    - If we don't find it we will look across the whole project.
+	- Default value: ```"Themes"```.
+	- Specifies the name of the ```Folder``` where ```Themes``` are stored. 
+	- This is just to optimize performance. 
+		- We try to resolve the ```Theme XAML``` against the XAMLs within this folder first. 
+		- If we don't find it we will look across the whole project.
 
 
 One final comment:
@@ -517,29 +571,51 @@ One final comment:
 - If you still want to report an **Error**, simply add a property to your ```.csproj``` called ```GrialFailOnError``` and set it to ```true```:
 
 ~~~
-  <GrialFailOnError>true</GrialFailOnError>
+	<GrialFailOnError>true</GrialFailOnError>
 ~~~
 
 For example:
 
 ~~~
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
-    <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <ProjectGuid>{45DA7B47-C579-4BC1-B1E5-97EEA0C669CD}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>UXDivers.Artina.Grial</RootNamespace>
-    <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>UXDiversArtinaGrialiOS</AssemblyName>
-    <ReleaseVersion>1.5</ReleaseVersion>
+	<PropertyGroup>
+		<Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+		<Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
+		<ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+		<ProjectGuid>{45DA7B47-C579-4BC1-B1E5-97EEA0C669CD}</ProjectGuid>
+		<OutputType>Exe</OutputType>
+		<RootNamespace>UXDivers.Artina.Grial</RootNamespace>
+		<IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
+		<AssemblyName>UXDiversArtinaGrialiOS</AssemblyName>
+		<ReleaseVersion>2.0</ReleaseVersion>
 
-    <GrialFailOnError>true</GrialFailOnError>
+		<GrialFailOnError>true</GrialFailOnError>
 
-  </PropertyGroup>
+	</PropertyGroup>
 </Project>
 ~~~
+
+Notices this this flag is project only affects the project where it is specified. You need to set it in the iOS and Android projects if you want to change the behavior in both platforms.
+
+### Troubleshooting Themes Compilation
+
+If your ```App.xaml``` file is not found, neither any xaml file whose root node is ```<Application>``` you will see the following warning on your build output:
+
+***“Can’t find App.xaml file in ```<your_project>```. Aborting.”***
+
+In order to instruct the build task the right path to your ```App.xaml``` or equivalent file, you will need to:
+
+- Add a json file named ***"Themes.json"*** to the root of the platform specific projects.
+- There is no need to include the file in the project, it just must exists in the file system for the task to pick it up.
+- Add the following:
+
+```
+	{
+		"AppXamlFullPath" : "<absolute path of App.xaml in your project>"
+	}
+```
+
+Optionally you can add another property called ```AppXamlProjectFullPath``` containing the path to the project that contains the ```App.xaml```. If not specified, the task will try to infer it.
 
 ## Brand Image
 
@@ -548,7 +624,7 @@ We also provide an easy way to replace your app's logo by modifying an specific 
 Additionally we provided an specific XAML view to help your branding needs, the **"BrandBlock.xaml"**, which can be found on the following location:
 
 
-       Grial
+			 Grial
 		|_ Views
 			|_ Common
 				|_ BrandBlock.xaml
@@ -674,16 +750,14 @@ If you want to use the attached properties in a different project you need to kn
 		- On your iOS project you will need to reference both **UXDivers.Artina.Shared.** and **UXDivers.Artina.Shared.iOS**. 
 
 For more info check 
-[Setting Up Artina Dlls in your project ](#setting-artina-dlls)
-and
 [Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup)
-## Splash Screen
+##<a name="grial-splash-screen" href="#grial-splash-screen" class="iconTitle">Splash Screen</a>
+
 Grial provides the needed infrastructure for your app to display your app's splash image.
 
 
 **On Android:**
-
-Starting from Grial 2.0 the Android splashes are responsive, which means they adapt to the size and orientation of your device.
+Android splashes are responsive, which means they adapt to the size and orientation of your device.
 
 This is made through the theme, a drawable called **"splash_drawable.xml"** and its background image called `splash.png`.
 
@@ -692,7 +766,7 @@ By default it uses the **"ComplementColor"** but you can change it to any color 
 
 Most of the cases you will only replace all the **"splash.png"** images files with yours.
 
-    Grial
+	Grial
 		|_ Grial.Droid
 			|_ resources
 				|_ drawable
@@ -705,6 +779,15 @@ Most of the cases you will only replace all the **"splash.png"** images files wi
 				|_ drawable-xxhdpi
 					|_ splash.png
 
+<p class="new">
+	Starting from Grial 2.5 we added a new availabe color on XAML themes:
+</p>
+
+```<Color x:Key="SplashBackgroundColor">#525ABB</Color>```
+
+This color will be used on your Android splash as the background color and will be synced through the themes build task, 
+so everytime you change it on your xaml theme it will be updated on your Android theme too.
+
 **On iOS:**
 
 Starting from Grial 2.0 the iOS splashes are responsive, which means they adapt to the size and orientation of your device.
@@ -713,13 +796,13 @@ We also use the new Unified Storyboards available from iOS 9+.
 This eases the process since less images are required than before. 
 
 Basically there is a single storyboard used across all different devices (phones and tablets).
-It contains a centered image (```splash.png```) which is horixontally and vertically centered.
+It contains a centered image (```splash.png```) which is horizontally and vertically centered.
 
 Most of the cases you will only replace all the **"splash.png"** images files with yours.
 
 It is also possible to change the background color of the view which contains the image.
 
-     Grial
+	Grial
 		|_ Grial.iOS
 			|_ Splash.storyboard
 			|_ Resources
@@ -801,25 +884,40 @@ In order to update your App's theme with any of the Grial themes you will need t
 
 ## Helpers
 
-### GrialShapes Font
+### Font Helpers
+Starting from Grial 2.0 we provide a font helpers per font with all the keys 
+of each icon and its character, making it much easier to work with font icons.
 
-Starting from Grial 2.0 we provide a helper with all the keys of each icon, making it easier to work with font icons:
+~~~
+Grial
+    |_ Helpers
+        |_ GrialShapesFont.cs
+        |_ FontasomeFont.cs
+        |_ IoniciconsFont.cs
+~~~
+
+
+#### How To Use Font Helpers
+
+Each font helper has all icons definitions inside:
 
 ![GrialShapes.cs](http://52.10.147.219/system/uploads/images/grial-shapes-cs.png)
 
-In order to ease the process, Grial provides a page to preview all the icons bundled with the grial font:
+In order to ease the process, Grial provides a page to preview all the icons bundled with 
+the ```grialshapes``` font by default, but you can pick any of the available.
+
 You can preview this page on the following location on Grial sample:
 
 ```Grial Theme > Grial Font Icons```
 
-![GrialShapes.cs](http://52.10.147.219/system/uploads/images/grial-font-icons.png)
+<div class="iphone7"><img class="image" src="http://52.10.147.219/system/uploads/images/grial-font-icons.png" alt="GrialShapes.cs" /><img class="mask" src="http://52.10.147.219/system/uploads/images/iphone7_mask.png" /></div>
 
 #### <a name="using-icons-cs-and-xaml"></a>Referencing icons on Code Behind and XAML
 
 If you are on code behind you will need to call the right font helper and the selected icon like this:
 
 ~~~
-    GrialShapesFont.Star;
+    GrialShapesFont.Star
 ~~~
 
 On XAML you will need to use it this way:
@@ -837,11 +935,6 @@ For more info check [Adding pages and templates to your project](#adding-pages-a
 ~~~
 	xmlns:local="clr-namespace:YOUR_NAMESPACE_HERE;assembly=YOUR_ASSEMBLY_HERE">
 ~~~
-
-
-### Navigation Service
-This is a service made with the only purpose of handling Grial sample.
-
 
 ### Responsive Helpers
 
@@ -874,7 +967,7 @@ The available properties listed by specificity are:
 
 All can be used in conjunction with the following types:
 
-`Int|Color|String|Bool|LayoutOptions`
+`Int|Color|String|Bool`
 
 Usage:
 ~~~
@@ -908,31 +1001,8 @@ Things can go deeper in customization adding more specificity to your declaratio
             Default=true, 
             PortraitDesktop=false 
         }"
-    HorizontalOptions="{ 
-        artina:OnOrientationLayoutOptions
-            PortraitPhone=Fill,
-            LandscapePhone=Center,
-            PortraitTablet=Fill,
-            LandscapeTablet=Center 
-        }"
 /> 
 ~~~
-
-It can be even used on styles:
-~~~
-    ...
-    <Setter 
-        Property="WidthRequest" 
-        Value="{ 
-            artina:OnOrientationInt 
-                Portrait=-1,
-                Landscape=700
-        }" 
-    />
-    ...
-~~~
-
-In the above example, the value ```-1``` is used to reset the value to the default value (WidthRequest on Xamarin Forms with value ```-1``` acts as there is no width set at all).
 
 For more examples please check:
 
@@ -942,25 +1012,43 @@ For more examples please check:
         |_ ResponsiveHelpersPage.xaml
 ~~~
 
-![Grial Responsive Helpers](http://52.10.147.219/system/uploads/images/responsive_helpers_page.png)
 
 
 
-## Setting Up Grial On A Xamarin Forms Project
+## Working with Projects
 
-### Using Grial Sample
+The fastest way to jump on Grial and start building your app is to use our starter 
+project that you can download from the [Grial Admin website](https://uxdivers.com/secure/grial/front). The admin website 
+don't just allow you to download a starter project but allows you to customize it with your namespaces, project names, etc. 
+See section [Using Grial Starter and Full](#starter-full-projects) for more details. 
 
-The fastest way for you to jump on Grial and start building your app or prototype is directly working on the sample provided with your purchase.
+If you are planning to add Grial to an existing Xamarin Froms project you will need to carry on a serie of steps to get your 
+project ready before start adding Grial screens. Please see [Setting Up Grial on an Existing Project](#setup-grial-existing-project) 
+for a detailed explanation.
 
-***NOTE:*** Starting from Grial 2.0 we allow to download your own customized Grial project and also a minimum project (Grial Starter) also customized with your namespace, assembly names, etc., so you don't have to waste time manually setting everything up.
-For more info check [Downloading Grial](#grial-download).
+### <a name="starter-full-projects"></a> Using Grial Starter and Full
 
-It cover all the templates showing how to use them with its pages, templates, bindings, styles, navigation, etc.
-So it is really easy just to use it as the base for your project.
+Grial 2.0 provides two solutions available for downloading through Grial Admin:
 
-***No project setup needed!*** 
+- **Grial Starter**
+    - This is a solution with all the needed files and dependencies to run Grial. 
+    - It is intended to be used as a starting point where you add the different XAML pages provided with Grial and you start building your app.
 
-The main reason why it will be easier is because you won't have to worry about setting up the project manually copying files to the right place, changing build options, etc.
+- **Grial Full**
+    - This is the full sample
+    - All the available pages from Grial are included here.
+
+One cool feature introduced in Grial 2.0 is the App setup, 
+where you can customize your copy of Grial with your App namespaces, assembly name, etc.
+
+<img class="image-with-border" src="http://52.10.147.219/system/uploads/images/grial_admin_new_app_setup.png" alt="Grial Admin New App Setup" />
+
+That way when you finally download your Grial copy, 
+you get everything configured as in your app, 
+for both solutions (Grial Starter and Full), 
+making it easy to copy and paste pages from Grial Full to your existing project.
+
+
 
 ### Grial Sample Project Structure
 
@@ -981,31 +1069,10 @@ Typically Grial makes use of:
  * Each platform needs its own images with their standard name and location
 
 
-### <a name="setting-artina-dlls"></a>Setting Up Artina Dlls in your project
 
-As mentioned before, Artina dlls contains most of our controls and Custom Renderers, so it is crucial you add them correctly into your project by following these steps:
-
-1. In your ***PCL*** add references to:
- * ```UXDivers.Artina.Shared.dll```
- 
-  ![Artina.Shared on PCL](http://52.10.147.219/system/uploads/images/artina_shared_on_pcl.png)
-
-2. In your Android project add references to: 
- * ```UXDivers.Artina.Shared.dll```
- * ```UXDivers.Artina.Shared.Droid.dll```
-
-  ![Artina.Shared on Android](http://52.10.147.219/system/uploads/images/artina_shared_on_android.png)
-
-3. In your iOS project add references to:
- * ```UXDivers.Artina.Shared.dll```
- * ```UXDivers.Artina.Shared.iOS.dll```
-
-  ![Artina.Shared on iOS](http://52.10.147.219/system/uploads/images/artina_shared_on_ios.png)
-
-  
 ### <a name="grial-license-setup"></a> Grial License Setup
 
-Grial 2.0 requires a license file in order to execute. 
+Grial requires a license file in order to execute. 
 Once you purchase the product you will be redirected to the [Grial Admin website](https://uxdivers.com/secure/grial/front) where you can register your app and download its license. 
 
 - The license is a file (named ```GrialLicense``` by default), that must be added at the root of your platform specific projects (iOS and Android). 
@@ -1017,21 +1084,9 @@ In Xamarin Forms, an embedded resource name is formed by the following scheme:
 
 ```<Default Namespace of the Container Project>.<Name of the File>```.
 	
-So, assumming the default namespace of your Android Project is:
-
-- ```MyApp.Droid``` 
-
-and the license file is called:
-
-- ```GrialLicense``` 
-
-...you will call:
-
-- ```Init``` 
-
-...passing the name:
-
-- ```MyApp.Droid.GrialLicense``` 
+So, assumming the default namespace of your Android Project is ```MyApp.Droid``` and the license file is called ```GrialLicense``` 
+you will call ```Init``` 
+passing the name ```MyApp.Droid.GrialLicense``` 
 
 iOS is analogus, but taking the default namespace of the iOS project.
 
@@ -1061,11 +1116,13 @@ namespace MyApp.iOS
 			GrialKit.Init(new ThemeColors(), "MyApp.iOS.GrialLicense");
 			...
 ~~~
-
 The ```Init``` method will verify that:
 
 - **Android** your app name and package name match those defined in the license.
 - **iOS** your app name and boundle identifier match those defined in the license.
+
+**Important:** if your Application is localized the license check also verifies the 
+localized names you define in Grial Admin, see [localization section](/i18n-page.html).
 
 If any of those does not match, the license verfication will fail saying which one. 
 See [License Verification](#grial-license-verification) for a detailed explanation.
@@ -1077,24 +1134,25 @@ The starter and full projects that can be downloaded from the [Grial Admin websi
 The licenses you download from [Grial Admin website](https://uxdivers.com/secure/grial/front) have two modes:
 
 - Development Mode (default)
-    - This is used while things are being developed and could change.
-    - Expires in 30 days. In such case, it displays an error with a link to renew and download a new one.
-    - Allows to renew the license as many times as could be needed.
+    - This is ment while things are being developed and may change.
+    - Expires 30 days after the generation date. In such case, it displays an error with a link to renew and download a new one.
+    - Can be renewed anytime to get another 30.
 
 - Production Mode
-    - You should switch to this mode once you are ready for production and you are sure about the final name of your app.
-    - Production licenses never expires.
+    - You should switch to this mode once you are ready to publish the app and you are sure about the final name, android package and iOS bundle identifier of your app.
+    - Production licenses never expire.
     - ***Once in this mode there is no way to change it back to development mode and you will no loger be able to edit your app info in the [Grial Admin website](https://uxdivers.com/secure/grial/front)***.
 
-Each new app you register in the Admin portal will start in Development mode.
+New registered apps in the Admin portal starts in Development mode, of course.
 
 
 ### <a name="grial-license-verification"></a> License Verification
 
 In **Android**, the license verification will check that:
 
-- the license's app name matches your app's name as defined in th ```AndroidManifest.xml``` and ```MainActivity.cs```.
-- the license's package name matches your app's package name as defined in the  ```AndroidManifest.xml```.
+- the license's app name matches your app name as defined in the `AndroidManifest.xml` and `MainActivity.cs`. Note that the name may 
+depend upon the culture if you have a localized app (read more on the [localization section](/i18n-page.html)).
+- the license's package name matches your app's package name as defined in the  `AndroidManifest.xml`.
 
 The following code fragments ilustrates which values should match:
 
@@ -1104,7 +1162,7 @@ The following code fragments ilustrates which values should match:
 <?xml version="1.0" encoding="utf-8"?>
 <manifest ... package="ANDROID_PACKAGE_NAME" ...>
     ...
-	<application ... android:label="ANDROID_APP_NAME" ...></application>
+	<application ... android:label="@string/app_name" ...></application>
 	...
 </manifest>
 ~~~
@@ -1114,20 +1172,47 @@ The following code fragments ilustrates which values should match:
 ~~~
 namespace MyApp.Droid
 {
-	[Activity(Label = "ANDROID_APP_NAME", ...)]
+	[Activity(Label = @string/app_name, ...)]
 	public class MainActivity : FormsAppCompatActivity
 	{
 		protected override void OnCreate(Bundle bundle)
 	...
 ~~~
 
+Application name is declared through `@string/app_name`. This is a localized Android string that defines the application name. The actual
+value of the string is defined in the `Strings.xml` resource file:
+
+![Android languages](http://52.10.147.219/system/uploads/images/droid-lang-folders.png)
+
+```
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+	<string name="app_name">My App Name</string>
+</resources>
+```
+
+If you define multiple cultures in Grial Admin you will see multiple `value-CULTURE` folders (in the image above `-ar` stands for Arabic), each with the specific name you pick. 
+If the app is not localized, only one Strings file under `values` folder will exist and will be the one containing the name. 
+
+**In case the Application is localized**, the check will verify that the runtime name matches the one defined in the license for the current culture.
+
+
 In **iOS**, the license verification will check that:
 
 - the license's app name matches the name defined in the ```Info.plist``` file. 
 	- If the ```CFBundleDisplayName``` is defined it will be considered as the application's name. 
 	- If it is not defined, the ```CFBundleName``` will be used.
-- the license's bounde identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
+	- Note that the name may depend upon the culture if you have a localized app (read more on the [localization section](/i18n-page.html)).
+- the license's boundle identifier matches the ```CFBundleIdentifier``` entry in the ```Info.plist```.
 
+In case you have a localized app defined in Grial Admin, you will see multiple ```Info.plist``` alternative files:
+
+![Android languages](http://52.10.147.219/system/uploads/images/ios-lang-folders.png)
+
+Each file defines ```CFBundleDisplayName``` and ```CFBundleName``` for the specific culture defined by the folder name. In the image 
+above `en` stands for English and `ar` for Arabic. 
+
+**In case the Application is localized**, the check will verify that the runtime display name (or name when display name is not defined) matches the one defined in the license for the current culture.
 
 ### Troubleshooting License Issues
 
@@ -1353,18 +1438,16 @@ Therefore you need to add the `AssemblyInfo.cs` file from the sample project, wh
 Grial makes use of several custom renderers declared on each platform through its own ```AssemblyInfo.cs``` file.
 In order to get them available for your project you will need to add them to your ```AssemblyInfo.cs``` files on each project (PCL, Android, iOS).
 
-For more info check: [Setting Up Artina Dlls in your project ](#setting-artina-dlls). 
-
 **NOTE:** Depending on your needs, you could need to customize the Grial theme for your app. Also you could not need some of the custom renderers so in such case you can simply not declare them on your project.
 
 #### Android Setup
 
 1. Open the file ```AssemblyInfo.cs``` on your Android project:
-
+  ````
   Grial.Droid
     |_ Properties
       |_ AssemblyInfo.cs
-
+  ````
 2. Paste the custom renderers definitions from Grial sample's ```AssemblyInfo.cs``` (also on the same folder form previous step):
     ~~~
     // Custom renderer definition.
@@ -1485,12 +1568,12 @@ On your project's code behind typically you will need to replace the sample data
 
 ### Gorilla Player
 
-Finally, if you are using [Gorilla Player](http://gorillaplayer.com) remember to copy the `SampleData.json` file from the Grial sample to your project to allow previewing it. 
+Finally, if you are using [Gorilla Player](http://gorillaplayer.com) remember to copy the `DesignTimeData.json` file from the Grial sample to your project to allow previewing it. 
 
-You will probably need to update your ```SampleData.json``` file to correctly feed your views with data according to your pages/templates names and data structures.
+You will probably need to update your ```DesignTimeData.json``` file to correctly feed your views with data according to your pages/templates names and data structures.
 
 For more info please check:
-https://github.com/UXDivers/Gorilla-Player-Support/wiki/Working-with-sample-data
+https://github.com/UXDivers/Gorilla-Player-Support/wiki/Working-with-design-time-data
 
 
 
