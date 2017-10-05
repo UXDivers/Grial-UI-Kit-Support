@@ -1,3 +1,45 @@
+# Release Notes - Grial 2.5.2.0
+
+## New features
+
+- Localization support through regular RESX files consumables from XAML through our extensions, see [i18n](i18n-page.html).
+- Support for Right-to-left layouts in every page and template, see [Grial RTL](rtl-page.html).
+- WrapPanel layout that allow elements to flow in an HTML-like fashion (used in `MovieSelectionPage.xaml`).
+- Circle buttons (`CustomRenderersPage.xaml`)
+	- ![Circle Buttons](http://52.10.147.219/system/uploads/images/circle_buttons.png)
+
+## Bug Fixes
+
+1. iOS 11 back button gone (issue [#254](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/254))
+2. TabControl does not render Bindable content (issue [#200](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/200))
+3. Button BorderColor works on iOS but not Android (issue [#214](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/214))
+4. Apply theme base color to iOS steppers
+5. Layout issue when on GridOptionsView after changing the device orientation on Android
+6. Missing `When` property in `FrontPageNewsPage.xaml`
+7. Fixing issues in Parallax effect on `ArticleViewPage.xaml`
+8. Ipad rotation breakes header layout on `ArticleViewPage.xaml`
+9. Fixed issue with gesture recognizers stop working on `TableView`'s Cells when the `ArtinaTableViewRenderer` was used.
+
+## Modified Artina packages in this version
+
+- ```UXDivers.Artina.Shared.Base``` upgraded to version **2.5.2**
+- ```UXDivers.Artina.Shared``` upgraded to version **2.5.2**
+- ```UXDivers.Artina.Controls.Tab``` upgraded to version **2.5.2**
+- ```UXDivers.Artina.Controls.Repeater``` upgraded to version **2.5.2**
+
+## Upgraded packages in this version
+
+### Xamarin Forms
+- ```Xamarin.Forms``` upgraded to version **2.4.0.282**
+
+### FFImageLoading
+- ```Xamarin.FFImageLoading``` upgraded to version **2.2.19**
+- ```Xamarin.FFImageLoading.Forms``` upgraded to version **2.2.19**
+- ```Xamarin.FFImageLoading.Transformations``` upgraded to version **2.2.9**
+
+
+
+
 # Release Notes - Grial 2.0.60.0
 
 This update has three main goals:
@@ -8,7 +50,7 @@ This update has three main goals:
 
 ```Grial 2.0.60.0``` is based on ```Xamarin Froms 2.3.4.247```. ```Xamarin Froms 2.3.4``` introduced a bug that may affect any app that uses the ```MergedWith``` property of ```ResourceDictionaries```, like Grial does. The bug has been reported [here](https://bugzilla.xamarin.com/show_bug.cgi?id=56030). It has been fixed but still it is not available in the stable channel. In the context of Grial, the bug only affects how colors are resolved, specially the "AccentColor" color. A workaround has been implemented to avoid the bug, which mainly consists of changing the order in which the accent color is defined in the themes XAML files.
 
-Starting in this version you can download Grial preconfigured to preview it using [Gorilla Player](http://www.gorillaplayer.com). This will allow you to go faster than ever building your app. The Gorilla Ready solution cames with the [Gorilla SDK](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Gorilla-SDK) integrated + the ```DesignTimeData.json``` with all the design time data required to preview Grial. The Gorilla Ready solution is available as a new option of the **Download dropdown** in [MyApps page](https://uxdivers.com/secure/grial/front/index.html#/myapps) of the [Grial Admin](https://uxdivers.com/secure/grial/front). Please notice that it requries [```Gorilla Player 1.0.0.15```](http://blog.uxdivers.com/release-notes-gorilla-player-1-0) to be installed in your computer and IDE. 
+Starting in this version you can download Grial preconfigured to preview it using [Gorilla Player](http://www.gorillaplayer.com). This will allow you to go faster than ever building your app. The Gorilla Ready solution cames with the [Gorilla SDK](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Gorilla-SDK) integrated + the ```DesignTimeData.json``` with all the design time data required to preview Grial. The Gorilla Ready solution is available as a new option of the **Download dropdown** in [MyApps page](https://uxdivers.com/secure/grial/front/index.html#/myapps) of the [Grial Admin](https://uxdivers.com/secure/grial/front). Please notice that it requries [```Gorilla Player 1.0.0.11```](http://blog.uxdivers.com/release-notes-gorilla-player-1-0) to be installed in your computer and IDE. 
 
 ## Fixes/Changes Shared Nuget Packages
 
@@ -139,7 +181,6 @@ The following nuget packages where updated:
 - ```UXDivers.Artina.Controls.Repeater``` to version 2.0.60.0
 
 
----
 
 # Release Notes - Grial 2.0.52.0
 
