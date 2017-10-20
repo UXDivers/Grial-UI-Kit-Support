@@ -405,6 +405,8 @@ Follow these steps:
 2. Run Gorilla Player
 3. Run your project under Gorilla Configuration
 
+<img class="image-with-border" src="http://52.10.147.219/system/uploads/images/gorilla_run_with_sdk.gif" alt="Grial preview through Gorilla SDK" />
+
 For more information on Gorilla Player config and setup please check [here](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Getting-Started).
 
 Gorilla also helps to work with [Grial localized apps](/i18n-page.html) and [RTL layouts](/rtl-page.html).
@@ -632,7 +634,7 @@ Additionally we provided an specific XAML view to help your branding needs, the 
 Grial uses a common practice in design which is using icons through a font.
 
 As icons are contained on a font it is really easy to use all the styling properties available to render a text control (`<Label>`):
-    
+	
 * TextColor
 * BackgroundColor
 * FontSize
@@ -640,63 +642,116 @@ As icons are contained on a font it is really easy to use all the styling proper
 Since they are made from vectors they will render properly across different devices with different pixel densities. 
 In other words, they will look sharp wherever you display them.
 
-Grial 2.0 uses its own font: `GrialShapes.ttf` provided with Grial Sample.
+Grial uses its own font: `GrialShapes.ttf` provided with Grial Sample.
 All its icons are used on our sample and were made with Material Design Look and Feel.
 The font acts as the source for basic shapes used on Grial's templates (circles, squares, etc.).
 This way adding your font with your own icons should not create conflicts with Grial. 
 
 ### Adding your own icon font to you app
 
-We have made easy to setup the fonts whitin the theme (App.xaml):
+We have made easy to setup the fonts whitin the application theme (`App.xaml`):
+
+~~~
+	<!-- BASE STYLES -->
+	<Style x:Key="FontIcon" TargetType="Label">
+		<Setter Property="FontFamily" Value="{ StaticResource IconsFontFamily }" />
+	</Style>
+
+	<Style x:Key="FontIconBase" TargetType="Label">
+		<Setter Property="FontFamily" Value="{ StaticResource GrialShapesFontFamily }" />
+	</Style>
+~~~
+
+In the above code you can see that both styles are pointing actually to `grialshapes.ttf` file through two static resources:
+
+* `GrialShapesFontFamily`
+* `IconsFontFamily`
 
 ```
-    <x:String x:Key="GrialShapesFontFamily">grialshapes</x:String>
-    <!-- PUT YOUR OWN ICONS FONT FAMILY BELOW -->
-    <x:String x:Key="IconsFontFamily">grialshapes</x:String>
-    <!--<x:String x:Key="IconsFontFamily">FontAwesome</x:String>-->
-    <!--<x:String x:Key="IconsFontFamily">Ionicons</x:String>-->
-    ...
+	<OnPlatform 
+		x:Key="GrialShapesFontFamily" x:TypeArguments="x:String"
+		Android="grialshapes.ttf#grialshapes"
+		iOS="grialshapes"
+	/>
+	
+	<!-- PUT YOUR OWN ICONS FONT FAMILY BELOW -->
+	<OnPlatform 
+		x:Key="IconsFontFamily" x:TypeArguments="x:String"
+		Android="grialshapes.ttf#grialshapes"
+		iOS="grialshapes"
+	/>
 
-    <Style x:Key="FontIcon" TargetType="Label">				
-        <Setter Property="FontFamily" Value="{ StaticResource IconsFontFamily }" />
-    </Style>
+```
+Let's take a look at the default Grial rendering for font icons:
 
-    <Style x:Key="FontIconBase" TargetType="Label">
-        <Setter Property="FontFamily" Value="{ StaticResource GrialShapesFontFamily }" />
-    </Style>
-```  
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/default_dashboard_item_template.png )
 
-In the above code you can see that both styles are pointing actually to `grialshapes`.
+The `DashboardItemTemplate.xaml` uses the default icons in this way:
 
-Replace the `IconsFontFamily` resource with your font file name (for instance `FontAwesome`, `Ionicons`) then you will get all the basic shapes applied (for instance on badges, dashboard templates, etc.), but you will be able to change the icons displayed on the App. 
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/font_icon_grialshapes_chart.png )
 
-**NOTE:** Grial 2.0 comes with latest 
-[fontawesome 4.7](http://fontawesome.io/icons/) and [ionicons 2.0.0](http://ionicons.com/cheatsheet.html) fonts added to the projects (iOS and Android) and also its helper classes to easily get the icons' characters:
+...then, the final rendered result is as it follows:
+
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/default_icons_dashboard_item_template.png )
+
+
+Now, suppose you need to change the icons to achieve this requirement:
+
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/custom_icon_font_on_dashboard.png )
+
+...so the rendered `DashboardItemTemplate.xaml` will look as follows:
+
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/custom_dashboard_item_template.png )
+
+To make this happen just make the `IconsFontFamily` resource value on `App.xaml`, to point to your font file name (for instance `MyCustomIconsFont.ttf`) 
+then you will get all the basic shapes applied (for instance on badges, dashboard templates, etc.), 
+but you will be able to change the other icons displayed on your App:
+
+~~~
+	<!-- PUT YOUR OWN ICONS FONT FAMILY BELOW -->
+	<OnPlatform 
+		x:Key="IconsFontFamily" x:TypeArguments="x:String"
+		Android="MyCustomFontIcon.ttf#MyCustomFontIcon"
+		iOS="MyCustomFontIcon"
+	/>
+~~~
+
+![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/font_icon_custom_chart.png )
+
+
+
+
+**NOTE:** Grial comes with 
+[fontawesome 4.7](http://fontawesome.io/icons/) and [ionicons 2.0.0](http://ionicons.com/cheatsheet.html) 
+fonts added to the projects (iOS and Android) and also its helper classes to easily get the icons' characters:
 ~~~
  Grial
-    |_ Helpers
-       |_ FontawesomeFont.cs
-       |_ GrialShapesFont.cs
-       |_ IoniciconsFont.cs
+	|_ Helpers
+	   |_ FontawesomeFont.cs
+	   |_ GrialShapesFont.cs
+	   |_ IoniciconsFont.cs
 ~~~
 
 Referencing icons will be easier this way.
+If you don't have the chance to produce the helper file with all the characters mappings for your icons keep in mind the following:
+
+* Copy the unicode value of your icon (something like **f00d**)
+* If you are using the icon on a .XAML file, you should use it as **"&#x"** + **UNICODE** + **";"**
+* If you are using the icon on a .CS file, you should use it as **"\u"** + **UNICODE**
+
 For more info check [referencing icons on code behind and XAML](#using-icons-cs-and-xaml).
 
+### Creating your custom made icon font
 
-If you want to include this font on your compilation then please check [adding font icons to your project procedure](#adding-font-icons-to-your-project)
+There are several web sites which can help you to create your own icon font:
 
-If you don't have the chance to produce the helper file with all the characters mappings for your icons you can directly use this procedure:
+* [Icomoon](//icomoon.io)
+* [Fontastic](//fontastic.me/)
 
-1. Go to [Weather icons](https://erikflowers.github.io/weather-icons/)
-2. Find the icon you need on the page.
-3. Copy the unicode value of that icon (something like **f00d**)
-4. If you are using the icon on a .XAML file, you should use it as **"&#x"** + **UNICODE** + **";"**
-5. If you are using the icon on a .CS file, you should use it as **"\u"** + **UNICODE**
-
-Alternatively you can create your own font including your icons and add it to your project following previous steps.
+We recommend including your icons and add them to your project following previous steps.
 
 **Important: Icons can ONLY be used on `<Label>` controls.**
+
 ## Artina Custom Renderers
 
 ​Xamarin Forms allows to customize only some properties of its UI controls. 
@@ -1259,64 +1314,35 @@ This error occurs when you are not calling ```Init``` or there is a Grial compon
 
 ##### For iOS:
 
-1. Add the font file: `grialshapes.ttf` 
-to the 
-`Resources` 
-folder on your iOS project, then set it to:
-***BundleResource***, just like in the sample app.
+1. Add the font file: `grialshapes.ttf` to the `Resources` folder on your iOS project, then set its **Build Action** to:
 
-![iOS bundle resource](http://52.10.147.219/system/uploads/images/ios_bundle_resource.png)
+	***BundleResource***, just like in the sample app.
+
+	![iOS bundle resource](http://52.10.147.219/system/uploads/images/ios_bundle_resource.png)
 
 2. Then add the following to your **info.plist** file:
-```
-<key>UIAppFonts</key>
-<array>
-    <string>grialshapes.ttf</string>
-</array>
-```
-**NOTE:** The display name for the **UIAppFonts** in the ```info.plist``` editor is ```'Fonts provided by application'```.
+	```
+	<key>UIAppFonts</key>
+	<array>
+		<string>grialshapes.ttf</string>
+	</array>
+	```
+	**NOTE:** The display name for the **UIAppFonts** in the ```info.plist``` editor is ```'Fonts provided by application'```.
 
-![iOS info.plist](http://52.10.147.219/system/uploads/images/info_plist_ios.png)
-
+	<img class="no-retina" src="http://52.10.147.219/system/uploads/images/info_plist_ios.png" alt="iOS info.plist" />
 
 ##### For Android:
 
-* Copy the file: 
-`CustomFontLabelRenderer.cs` from Grial's sample project (located on ```Grial.Droid/Renderers```) to your Android project.
+1. Add the font file: `grialshapes.ttf` to the `/Assets` folder on your Android project
 
-    ![CustomFontLabelRenderer.cs](http://52.10.147.219/system/uploads/images/custom-font-label-renderer.png)
+	<img class="no-retina" src="http://52.10.147.219/system/uploads/images/android-font-asset.png" alt="Grial Shapes font.cs" />
 
-* Then add the file:
-`grialshapes.ttf`
-to the 
-`/Assets` folder on your Android project.
+2. Select the file, and make sure the ***Build Action*** is set to:
 
-    ![Grial Shapes font.cs](http://52.10.147.219/system/uploads/images/android-font-asset.png)
+	`"AndroidAsset"` in the Properties tab. (It is normally its default setting).
 
-
-* Select the file, and make sure the ***Build Action*** is set to:
-`"AndroidAsset"`
-in the Properties tab. (This is normally its default setting).
-
-    ![AndroidAsset](http://52.10.147.219/system/uploads/images/android-build-action-asset.png)
-
-* [Register the icons custom renderer](#artina-custom-renderers-setup) (`CustomFontLabelRenderer`)
-on the `AssemblyInfo.cs` file with the following code (remember to use your custom namespace:
-
-    ```[assembly: ExportRenderer(typeof(Label), typeof(YOUR_CUSTOM_NAMESPACE_HERE.Renderers.CustomFontLabelRenderer))]```
-
-    ![iOS AssemblyInfo](http://52.10.147.219/system/uploads/images/assembly-info.png)
-
-* Copy the ```CustomFontLabelRenderer.cs``` file from Grial sample to your Android project:
-~~~
- Grial.Droid
-    |_ Renderers
-       |_ CustomFontLabelRenderer.cs
-~~~
-Remember to use the right namespaces according to your project.
-
-* Open the recently copied ```CustomFontLabelRenderer.cs``` on your Android project, then add a reference to your font if it not there (```grialshapes``` is present by default).
-
+	![AndroidAsset](http://52.10.147.219/system/uploads/images/android-build-action-asset.png)
+	
 
 
 ### Grial Theme Setup
