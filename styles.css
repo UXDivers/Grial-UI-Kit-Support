@@ -221,6 +221,21 @@ body, td, textarea, input {
         position: relative;
       }
 
+    .youtube{
+      position: relative;
+      display: inline-block;
+      margin: 10px;
+    }
+      .youtube .playButton{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 112px;
+        margin: -56px;
+        border-radius: 25px;
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 8px 8px;
+      }
+
 .image-with-border{
   border: 1px solid rgba(128, 128, 128, 0.3);
 }

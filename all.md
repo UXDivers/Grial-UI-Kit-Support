@@ -389,6 +389,8 @@ For your convenience we have structured the PCL project with the following setup
 
 [Gorilla Player](http://gorillaplayer.com/) is a great tool for immediate previewing and debugging Xaml code.
 
+<a class="youtube" href="https://youtu.be/yRhvCctVIzE" title="Grial 2.0 with Gorilla Player Out of the Box Video" target="_blank"><img class="image-with-border" src="http://52.10.147.219/system/uploads/images/grial_gorilla_youtube_video.png" alt="Grial 2.0 with Gorilla Player Out of the Box Video" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a>
+
 Grial Admin offers the option to [download Grial](#grial-uikit-overview-downloading-grial) with Gorilla Player 
 pre-configured.
 
@@ -489,6 +491,8 @@ The most important color is the **AccentColor** followed by the ***BaseTextColor
 Basically changing these values will affect the overall look and feel of your App.
 
 The theme is made with a "Top Down" approach, so the deeper you go into the theme styles the more specific tweaks are made.
+
+<a class="youtube" href="https://youtu.be/1UKrWSp-LEs" title="Working with Grial colors" target="_blank"><img class="image-with-border" src="http://52.10.147.219/system/uploads/images/working_with_colors_youtube_video.png" alt="Working with Grial colors" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a>
 
 ### Compiling Themes
 
@@ -684,7 +688,7 @@ In the above code you can see that both styles are pointing actually to `grialsh
 ```
 Let's take a look at the default Grial rendering for font icons:
 
-![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/default_dashboard_item_template.png )
+<div class="iphone7"><img class="image" src="http://52.10.147.219/system/uploads/images/default_dashboard_item_template.png" alt="Grial Default Icons Font Family rendered sample" /><img class="mask" src="http://52.10.147.219/system/uploads/images/iphone7_mask.png" /></div>
 
 The `DashboardItemTemplate.xaml` uses the default icons in this way:
 
@@ -697,7 +701,7 @@ The `DashboardItemTemplate.xaml` uses the default icons in this way:
 
 Now, suppose you need to change the icons to achieve this requirement:
 
-![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/custom_icon_font_on_dashboard.png )
+<div class="iphone7"><img class="image" src="http://52.10.147.219/system/uploads/images/custom_icon_font_on_dashboard.png" alt="Grial Default Icons Font Family rendered sample" /><img class="mask" src="http://52.10.147.219/system/uploads/images/iphone7_mask.png" /></div>
 
 ...so the rendered `DashboardItemTemplate.xaml` will look as follows:
 
@@ -719,7 +723,7 @@ but you will be able to change the other icons displayed on your App:
 ![Grial Default Icons Font Family rendered sample]( http://52.10.147.219/system/uploads/images/font_icon_custom_chart.png )
 
 
-
+<a class="youtube" href="https://youtu.be/zTC3jl4yyzg" title="Grial UI Kit - Icons" target="_blank"><img class="image-with-border" src="http://52.10.147.219/system/uploads/images/rtl_youtube_video.png" alt="Grial UI Kit - Icons" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a>
 
 **NOTE:** Grial comes with 
 [fontawesome 4.7](http://fontawesome.io/icons/) and [ionicons 2.0.0](http://ionicons.com/cheatsheet.html) 
@@ -996,6 +1000,8 @@ For more info check [Adding pages and templates to your project](#adding-pages-a
 ***Grial 2.0*** adds support for responsive design.
 This is a powerful addition made over Xamarin Forms. 
 Now it is possible to have full control on how things layout on pages and how they react to orientation changes.
+
+<a class="youtube" href="https://youtu.be/VtLshiGX02w" title="Grial Responsive Helpers" target="_blank"><img class="image-with-border" src="http://52.10.147.219/system/uploads/images/responsive_helpers_youtube_video.png" alt="Grial Responsive Helpers" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a>
 
 The available properties listed by specificity are:
 

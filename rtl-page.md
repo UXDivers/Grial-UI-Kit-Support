@@ -2,13 +2,14 @@
 
 ## Overview 
 
-
 ![Grial RTL Overview](http://52.10.147.219/system/uploads/images/grial-rtl-composition3.png?1505852390)
 
 Initially, Grial was made for the Left-to-right (LTR) market but due to the great requests received we decided to make the product Right-to-left (RTL) enabled.
 
 **Grial RTL** provides 70+ screens and templates that now support both **LTR** and **RTL** using the exact same XAML code! 
 Moreover, you can go from LTR to RTL culture (e.g. English to Arabic) without leaving the App, the pages will react to the change immediately.
+
+<a class="youtube" href="https://youtu.be/7nXohrwuNwU" title="Grial RTL Video" target="_blank"><img class="image-with-border" src="http://52.10.147.219/system/uploads/images/rtl_youtube_video.png" alt="Grial RTL Video" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a>
 
 If you are interested in this, you will probably be interested to read about [Grial localization](/i18n-page.html).
 
