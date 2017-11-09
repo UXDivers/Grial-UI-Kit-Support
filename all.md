@@ -203,7 +203,7 @@ iOS is analogus, but taking the default namespace of the iOS project.
 
 **Android**
 ~~~
-namespace MyApp.Droid
+namespace MyApp.Droid.Droid
 {
 	...
 	public class MainActivity : FormsAppCompatActivity
@@ -211,13 +211,12 @@ namespace MyApp.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
             ...
-            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense"); 
             ...
 ~~~
-
 **iOS**
 ~~~
-namespace MyApp.iOS
+namespace MyApp.iOS.iOS
 {
 	public class AppDelegate : FormsApplicationDelegate
 	{
@@ -1110,6 +1109,9 @@ for both solutions (Grial Starter and Full),
 making it easy to copy and paste pages from Grial Full to your existing project.
 
 
+### Setting Up Grial On An Existing Project 
+To make easier adding Grial to an existing project please check 
+[setting up Grial on an existing project page](/setup-grial-on-an-existing-project.html).
 
 ### Grial Sample Project Structure
 
@@ -1153,7 +1155,7 @@ iOS is analogus, but taking the default namespace of the iOS project.
 
 **Android**
 ~~~
-namespace MyApp.Droid
+namespace MyApp.Droid.Droid
 {
 	...
 	public class MainActivity : FormsAppCompatActivity
@@ -1161,13 +1163,12 @@ namespace MyApp.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
             ...
-            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense"); 
             ...
 ~~~
-
 **iOS**
 ~~~
-namespace MyApp.iOS
+namespace MyApp.iOS.iOS
 {
 	public class AppDelegate : FormsApplicationDelegate
 	{
