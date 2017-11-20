@@ -80,7 +80,7 @@ Grial UIKit supports:
 - Android 4.2+ (API Level 17) through AppCompatV7.
 - iOS 9.0+
 - Xamarin Forms:
-    - Grial 2.5 was released with Xamarin Forms `2.3.4.270` version.
+    - Grial 2.5 was released with Xamarin Forms `2.4.0.282` version.
     - We will keep the product updated to latest stable versions.
     - Artina packages require `2.3.1.144+`.
 
