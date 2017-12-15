@@ -365,6 +365,41 @@ In order to fix this manually remove the app from the device or simulator you ar
 
 This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
 
+
+
+#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+
+This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
+
+**Android**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking process. 
+You can do that by setting `Ignore assemblies` option to:
+`UXDivers.Artina.Shared.Base;UXDivers.Artina.Shared.Base.Droid;UXDivers.Artina.Shared;UXDivers.Artina.Shared.Droid`.
+
+After that the app will stop complaining. 
+
+Then it started complaining about stuff that was only referenced from the XAML (since the linker does not consider the XAML while analyzing what should be kept). 
+
+Essentially it complains about the `GrialLightTheme` (which is the theme currently set) and the `GrialShapesFont`.
+
+In order to fix this, a `PreserveAttribute` class is needed to be created as suggested 
+[here](https://developer.xamarin.com/guides/ios/advanced_topics/linker/) 
+and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
+
+~~~
+	[Preserve(AllMembers = true)]
+	public partial class GrialLightTheme
+	{
+
+
+	[Preserve(AllMembers = true)]
+	public class GrialShapesFont
+	{
+~~~
+
 ### Conventions
 For your convenience we have structured the PCL project with the following setup:
 
@@ -1317,6 +1352,41 @@ In order to fix this manually remove the app from the device or simulator you ar
 #### "Grial UI Kit license not initialized, please call 'UXDivers.Artina.Shared.GrialKit.Init(<license>)' before performing the LoadApplication." Error Message
 
 This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
+
+
+
+#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+
+This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
+
+**Android**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking process. 
+You can do that by setting `Ignore assemblies` option to:
+`UXDivers.Artina.Shared.Base;UXDivers.Artina.Shared.Base.Droid;UXDivers.Artina.Shared;UXDivers.Artina.Shared.Droid`.
+
+After that the app will stop complaining. 
+
+Then it started complaining about stuff that was only referenced from the XAML (since the linker does not consider the XAML while analyzing what should be kept). 
+
+Essentially it complains about the `GrialLightTheme` (which is the theme currently set) and the `GrialShapesFont`.
+
+In order to fix this, a `PreserveAttribute` class is needed to be created as suggested 
+[here](https://developer.xamarin.com/guides/ios/advanced_topics/linker/) 
+and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
+
+~~~
+	[Preserve(AllMembers = true)]
+	public partial class GrialLightTheme
+	{
+
+
+	[Preserve(AllMembers = true)]
+	public class GrialShapesFont
+	{
+~~~
 ### <a name="adding-font-icons-to-your-project"></a> Adding Font Icons To Your Project
 
 
