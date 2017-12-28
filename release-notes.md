@@ -4,7 +4,7 @@
 This release is manily focused on adding support for **.NET Standard**. 
 Now the `UXDivers.Artina.Shared*` packages are **.NET Standard** compatible. 
 Starting in this version Grial UI Kit Sample project is a **.NET Standard 2.0 Project**, *not a PCL project anymore*. 
-The packages target **.NET Standard 1.0** to maximize compatibility.
+The packages target **.NET Standard 1.0** to maximize compatibility. 
 
 Additionally, this version includes some enhancements for the license verification and some improvements for the `Tab Control`.
 
@@ -75,8 +75,6 @@ Grial License verification menchanism is performed entirly offline, based on the
 Before publishing your app **it is crucial that you switch your license to Production Mode** and update the license file in your project. If for some reason you forget to do so, license verification might start failing and you will need to do an update in order to fix it.
 
 To avoid this, starting in **Grial 2.6** all sample projects verifies that when running in **Release Mode** your application uses a license in production mode. If not, it will display a message with a warning:
-
-![Grial License Release Mode Reminder](http://52.10.147.219/system/uploads/images/license_release_reminder_ios.png)
 
 ![Grial License Release Mode Reminder](http://52.10.147.219/system/uploads/images/license_release_reminder_ios.png)
 
