@@ -1,6 +1,248 @@
-# Release Notes - Grial 2.5.2.0
+
+# Release Notes - Grial 2.6.0.0 RC
+
+This release is manily focused on adding support for **.NET Standard**. 
+Now the `UXDivers.Artina.Shared*` packages are **.NET Standard** compatible. 
+Starting in this version Grial UI Kit Sample project is a **.NET Standard 2.0 Project**, *not a PCL project anymore*. 
+The packages target **.NET Standard 1.0** to maximize compatibility.
+
+Additionally, this version includes some enhancements for the license verification and some improvements for the `Tab Control`.
+
+## IMPORTANT NOTICE: Why RC?
+
+`UXDivers.Artina.Shared*` nuget packages are released as fully flagged **RTM**, meanwhile, the Grial app will be released as **RC**.
+
+We chose to label it as **Release Candidate** due a few bugs in `Xamarin Forms` latest stable version that breaks `XAMLC` in the context of **.NET Standard** projects. 
+
+As a result `XAMLC` **must be disabled** which degrades performance, especially in Android. Once those bugs hit the Xamarin stable channel we will release Grial app as **RTM**.
+
+What does this means to you?
+`UXDivers.Artina.Shared*` are **RTM** packages, so it is perfectly safe to upgrade to those
+You can base your app on **Grial 2.6.0.0 RC** sample app and it will work like a charm. You must only be aware that `XAMLC` has been disabled. If that is not an issue for you, just go with it.
+
+## How to base your app on **Grial 2.6 RC**
+In order to base your app on **Grial 2.6 RC**, you must configure that on Grial Admin through the following steps:
+
+- Opening your app details page on [Grial Admin](https://uxdivers.com/secure/grial/front/#/myapps)
+- Choose **Grial Settings tab**
+- Uncheck the **"Stick to latest stable version"** checkbox
+- Select version **2.6.0.0** Release Candidate
+- Press **"Save Changes"** button
+
+![grial_admin_2_6_rc](https://user-images.githubusercontent.com/15996999/34397775-c6d2f2d8-eb57-11e7-99c8-88226f118423.png)
+
+Then, simply download your Grial Full or Starter customized projects:
+
+![grialadmin_download_dropdown](https://user-images.githubusercontent.com/15996999/34399039-8d286e5e-eb62-11e7-808e-49ef6a52036c.png)
+
+For more detail about the `XAMLC` bugs see:
+
+- https://github.com/xamarin/Xamarin.Forms/issues/1316
+- https://bugzilla.xamarin.com/show_bug.cgi?id=60452#c2
+
+**Above bugs require that XAMLC should be NOT enabled for .NET Standard 2.0 projects in order to compile and run succesfully.**
+
+If you need to enable `XAMLC` for your app, then you should download a previous Grial 
+version with support for **PCL** at least until Microsoft releases an unpdate that fixes this issue.
+
+Keep in mind that if you choose to avoid `XAMLC` in your app you will experience a performance hit, 
+which might be more noticeable on Android.
 
 ## New features
+
+- **.NET Standard support**. 
+	- `UXDivers.Artina.Shared*` nuget packages are now compatible with .NET Standard. 
+	- Starting with Grial 2.6, Grial Sample application is based on .NET Standard too. 
+	- **PCL based apps is only supported for Grial versions < 2.6.**
+- **Production mode**. 
+	- Added a safty check in Release mode that the license being used is in Production mode.
+- **Tab Control**. 
+	- Added support for Font Icons and Badge for the Tabs.
+- **Tab Control Samples**. 
+	- The Tab Control sample was splitted to make things easier.
+
+## Bug Fixes/Enhancements
+
+1. Fixed [issue #173 - iOS Keybord overlay on text field](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/173). 
+2. Improved Android renderers for `DatePicker`, `Picker` and `TimePicker` to honor the `PickerProperties`.
+3. Added responsive helpers for `Thinkness`, called `OnOrientationThickness`.
+4. Fixed [issue #309 - GridOptionsView does not update properly when there are no items](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/309).
+
+## Production Mode License
+
+Grial License verification menchanism is performed entirly offline, based on the license file included in your project. 
+
+Before publishing your app **it is crucial that you switch your license to Production Mode** and update the license file in your project. If for some reason you forget to do so, license verification might start failing and you will need to do an update in order to fix it.
+
+To avoid this, starting in **Grial 2.6** all sample projects verifies that when running in **Release Mode** your application uses a license in production mode. If not, it will display a message with a warning:
+
+![Grial License Release Mode Reminder](http://52.10.147.219/system/uploads/images/license_release_reminder_ios.png)
+
+![Grial License Release Mode Reminder](http://52.10.147.219/system/uploads/images/license_release_reminder_ios.png)
+
+This check is included in the `MainActivity`:
+
+~~~
+if (!UXDivers.Artina.Shared.License.IsProductionLicense())
+{
+	AlertDialog.Builder alert = new AlertDialog.Builder(this);
+	alert.SetTitle("Grial UI Kit Release Reminder");
+	alert.SetMessage("Before publishing this App remember to change the license file to PRODUCTION MODE so it doesn't expire.");
+	alert.SetPositiveButton("OK", (sender, e) => { });
+
+	var dialog = alert.Create();
+	dialog.Show();
+}
+~~~
+
+and in the `AppDelegate` as follows:
+
+~~~
+if (!UXDivers.Artina.Shared.License.IsProductionLicense())
+{
+	BeginInvokeOnMainThread(() =>
+	{
+		var alert = UIAlertController.Create(
+			"Grial UI Kit Release Reminder",
+			"Before publishing this App remember to change the license file to PRODUCTION MODE so it doesn't expire.",
+			UIAlertControllerStyle.Alert);
+
+		alert.AddAction(UIAlertAction.Create("Ok", UIAlertActionStyle.Default, null));
+
+		UIApplication.SharedApplication.KeyWindow.RootViewController.PresentedViewController.PresentViewController(alert, animated: true, completionHandler: null);
+	});
+}
+~~~
+
+**NOTE**: If you already have an app based in Grial, we strongly recommend you to update nugets packages to 2.6 and add this check after the `GrialKit.Init()`.  
+
+## Gorilla Player Support
+
+In order to preview your Grial projects with support for **.NET Standard** you will need to use latest version (**Gorilla Player 1.2.0.0**).
+
+You can download it from <a href="http://gorillaplayer.com" target="_blank">Gorilla Player website</a>
+
+## TabControl Update
+
+In order to make things easier, we splitted the big previous sample of `TabControl` into four different samples:
+
+~~~
+Grial
+	|_ Views
+		|_ Theme
+			|_ TabControlAndroidSamplePage.xaml
+			|_ TabControlBottomPlacementSamplePage.xaml
+			|_ TabControlCustomSamplePage.xaml
+			|_ TabControliOSSamplePage.xaml
+~~~
+
+* `TabControlAndroidSamplePage.xaml`
+	* This sample demonstrates using a `TabControl` with a Material Design look and feel.
+
+* `TabControlAndroidSamplePage.xaml`
+	* This sample demonstrates using a `TabControl` also with a Material Design look and feel but using the "TabStripPlacement" property set to "Bottom".
+
+* `TabControlAndroidSamplePage.xaml`
+	* This sample demonstrates using a `TabControl` with a custom look and feel.
+
+* `TabControlAndroidSamplePage.xaml`
+	* This sample demonstrates using a `TabControl` with an iOS look and feel.
+
+Also, we moved the different resources needed for Android, iOS and custom look and feel for the `TabControl`.
+
+You will find those in the following folder:
+
+~~~
+Grial
+	|_ Views
+		|_ Theme
+			|_ Resources
+				|_ TabControlAndroidResources.xaml
+				|_ TabControlCustomResources.xaml
+				|_ TabControliOSResources.xaml
+~~~
+
+## TabControl new features
+
+We added support for:
+
+1. Font icons
+2. Badge control
+
+### Font Icons on `TabItem`
+
+From now and on you can add your font icons to your `TabItem` and you can even combine them with bitmap icons.
+
+To add a font icon to your `TabItem` simply use the following properties:
+
+* `IconText`
+	* Used for the default state of the icon
+* `IconTextSelected`
+	* Used for the selected state of the icon
+
+#### Usage:
+
+~~~
+<tab:TabItem
+	IconText="YOUR_ICON_CHAR"
+	IconTextSelected="YOUR_ICON_SELECTED_CHAR" >
+~~~
+
+With the above you can specify different icons for each icon state. This is particularly useful for instance on iOS tabs where you will need an outliend and filled versions of your icon.
+
+Alternatively, you can simply use the default icon only:
+
+~~~
+<tab:TabItem
+	IconText="{ x:Static
+	local:GrialShapesFont.InsertPhoto }" >
+~~~
+
+ ...then later change its appeareance through styles (inclueded on the resources files mentioned above).
+
+
+### Badges on `TabItem`
+
+Starting from this version, you can add a `Badge` to each one of your `TabItem` items.
+
+To add a font icon to your `TabItem` simply use the following properties:
+
+* `BadgeText`
+	* Used to display the value of the `Badge` within the `TabItem`.
+
+#### Usage:
+
+~~~
+<tab:TabItem
+	BadgeText="1" >
+~~~
+
+## Modified Artina packages in this version
+
+- `UXDivers.Artina.Shared.Base` upgraded to version **2.6.4**
+- `UXDivers.Artina.Shared` upgraded to version **2.6.4**
+- `UXDivers.Artina.Controls.Tab` upgraded to version **2.6.4**
+- `UXDivers.Artina.Controls.Repeater` upgraded to version **2.6.4**
+
+## Upgraded packages in this version
+
+### Xamarin Forms
+- `Xamarin.Forms` upgraded to version **2.5.0.121934**
+
+### FFImageLoading
+- `Xamarin.FFImageLoading` upgraded to version **2.3.1**
+- `Xamarin.FFImageLoading.Forms` upgraded to version **2.3.1**
+- `Xamarin.FFImageLoading.Transformations` upgraded to version **2.3.1**
+
+### Lottie
+- `Com.Airbnb.Xamarin.Forms.Lottie` upgraded to version **2.4.0**
+- `Com.Airbnb.Android.Lottie` upgraded to version **2.2.5**
+- `Com.Airbnb.iOS.Lottie` upgraded to version **2.1.5**
+
+
+# Release Notes - Grial 2.5.2.0
+
+### New features
 
 - Localization support through regular RESX files consumables from XAML through our extensions, see [i18n](i18n-page.html).
 - Support for Right-to-left layouts in every page and template, see [Grial RTL](rtl-page.html).
@@ -8,7 +250,7 @@
 - Circle buttons (`CustomRenderersPage.xaml`)
 	- ![Circle Buttons](http://52.10.147.219/system/uploads/images/circle_buttons.png)
 
-## Bug Fixes
+### Bug Fixes
 
 1. iOS 11 back button gone (issue [#254](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/254))
 2. TabControl does not render Bindable content (issue [#200](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/200))
@@ -20,19 +262,19 @@
 8. Ipad rotation breakes header layout on `ArticleViewPage.xaml`
 9. Fixed issue with gesture recognizers stop working on `TableView`'s Cells when the `ArtinaTableViewRenderer` was used.
 
-## Modified Artina packages in this version
+### Modified Artina packages in this version
 
 - ```UXDivers.Artina.Shared.Base``` upgraded to version **2.5.2**
 - ```UXDivers.Artina.Shared``` upgraded to version **2.5.2**
 - ```UXDivers.Artina.Controls.Tab``` upgraded to version **2.5.2**
 - ```UXDivers.Artina.Controls.Repeater``` upgraded to version **2.5.2**
 
-## Upgraded packages in this version
+### Upgraded packages in this version
 
-### Xamarin Forms
+#### Xamarin Forms
 - ```Xamarin.Forms``` upgraded to version **2.4.0.282**
 
-### FFImageLoading
+#### FFImageLoading
 - ```Xamarin.FFImageLoading``` upgraded to version **2.2.19**
 - ```Xamarin.FFImageLoading.Forms``` upgraded to version **2.2.19**
 - ```Xamarin.FFImageLoading.Transformations``` upgraded to version **2.2.9**
@@ -52,7 +294,7 @@ This update has three main goals:
 
 Starting in this version you can download Grial preconfigured to preview it using [Gorilla Player](http://www.gorillaplayer.com). This will allow you to go faster than ever building your app. The Gorilla Ready solution cames with the [Gorilla SDK](https://github.com/UXDivers/Gorilla-Player-Support/wiki/Gorilla-SDK) integrated + the ```DesignTimeData.json``` with all the design time data required to preview Grial. The Gorilla Ready solution is available as a new option of the **Download dropdown** in [MyApps page](https://uxdivers.com/secure/grial/front/index.html#/myapps) of the [Grial Admin](https://uxdivers.com/secure/grial/front). Please notice that it requries [```Gorilla Player 1.0.0.11```](http://blog.uxdivers.com/release-notes-gorilla-player-1-0) to be installed in your computer and IDE. 
 
-## Fixes/Changes Shared Nuget Packages
+### Fixes/Changes Shared Nuget Packages
 
 - Fixed Memory Leak Responsive Helpers
 - The following Responsive Helpers has been marked as obsolete: ```OnScreenSizeDouble```, ```OnScreenSizeInt```, ```StylePerSize```, ```HiddenPerSize```, ```IsExtraSmallScreen```, ```IsLargeScreen```, ```IsMediumScreen```, ```IsNotExtraSmallScreen```, ```IsNotLargeScreen```, ```IsNotMediumScreen```, ```IsNotSmallScreen```, ```IsSizeScreenBase```, ```IsSmallScreen``` and ```VisiblePerSize```.
@@ -70,7 +312,7 @@ Starting in this version you can download Grial preconfigured to preview it usin
 </Style>
 ~~~~
 
-## Fixes in the Grial Solution
+### Fixes in the Grial Solution
 
 - Added ```windowActionModeOverlay``` property to android theme so context menus are property displayed.
 - Fixed ```TabControl``` font size issue in the ```TabControlSamplePage.xaml``` sample page.
@@ -79,11 +321,11 @@ Starting in this version you can download Grial preconfigured to preview it usin
 - Replaced ```DashboardTemplateSelector``` with the generic ```BoolMemberTemplateSelector``` in the ```DashboardMultipleTilesPage```.
 - Replaced some unnecessary ```DynamicResource``` with ```StaticResource```. Now only colors uses ```DynamicResource```, the rest of the resources are resolved with ```StaticResource```.
 
-## Gorilla Ready
+### Gorilla Ready
 
 The Gorilla Ready solution cames with an additional configuration (besides ```Debug```/```Release```) called ```Gorilla```. If you run your app using this configuration your app will start in preview mode. That means that you will see Gorilla Player starting instead of your app. Once you connect with the Gorilla Server you will be able to start previewing and you normally do with the standard Gorilla Player app.
 
-## Modified Files In This Version
+### Modified Files In This Version
 
 ~~~
 Droid/Grial.Droid.csproj
@@ -171,7 +413,7 @@ iOS/ThemeColors.cs
 iOS/packages.config
 ~~~
 
-## Modified Packages In This Version
+### Modified Packages In This Version
 
 The following nuget packages where updated:
 
@@ -184,7 +426,7 @@ The following nuget packages where updated:
 
 # Release Notes - Grial 2.0.52.0
 
-## Fixes
+### Fixes
 
 - The theme synchronization task has been reimplemented to fix issues (i.e. [#166](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/166), [#164](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/164), [#161](https://github.com/UXDivers/Grial-UI-Kit-Support/issues/161)) and add support for Shared projects too. The latter is still in beta. 
 - Fixed issue with ```UXDivers.Artina.*``` nuget package not being correctly updated, when the update was triggered from Visual Studio.
@@ -205,7 +447,7 @@ Starting in this version **Themes Synchronization task** will report a warning, 
 
 The behavior can be changed if needed, see [Advanced Theme Synchronization](#advanced-theme-sync-configuration) for more information.
 
-## Modified Files In This Version
+### Modified Files In This Version
 ~~~
   Droid/Grial.Droid.csproj
   Droid/MainActivity.cs
@@ -257,7 +499,7 @@ The behavior can be changed if needed, see [Advanced Theme Synchronization](#adv
   iOS/Properties/AssemblyInfo.cs
 ~~~
 
-## Modified Packages In This Version
+### Modified Packages In This Version
 
 The following nuget packages where updated:
 
@@ -266,7 +508,7 @@ The following nuget packages where updated:
 - ```UXDivers.Artina.Controls.Tab``` to version 2.0.52.0
 - ```UXDivers.Artina.Controls.Repeater``` to version 2.0.52.0
 
-##  <a name="advanced-theme-sync-configuration"></a> Advanced Theme Synchronization Configuration
+###  <a name="advanced-theme-sync-configuration"></a> Advanced Theme Synchronization Configuration
 
 Theme syncrhonization task can be configured using ```Themes.json``` file. 
 
