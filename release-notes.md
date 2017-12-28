@@ -29,7 +29,7 @@ In order to base your app on **Grial 2.6 RC**, you must configure that on Grial 
 - Select version **2.6.0.0** Release Candidate
 - Press **"Save Changes"** button
 
-![grial_admin_2_6_rc](https://user-images.githubusercontent.com/15996999/34397775-c6d2f2d8-eb57-11e7-99c8-88226f118423.png)
+![grial_admin_2_6_rc](https://user-images.githubusercontent.com/7670773/34412512-741ab69c-ebbc-11e7-8f1a-4c6abee3e2b7.png)
 
 Then, simply download your Grial Full or Starter customized projects:
 
