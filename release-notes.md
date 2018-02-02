@@ -23,7 +23,7 @@ You can base your app on **Grial 2.6.0.0 RC** sample app and it will work like a
 ## How to base your app on **Grial 2.6 RC**
 In order to base your app on **Grial 2.6 RC**, you must configure that on Grial Admin through the following steps:
 
-- Opening your app details page on [Grial Admin](https://uxdivers.com/secure/grial/front/#/myapps)
+- Open your app details page on [Grial Admin](https://uxdivers.com/secure/grial/front/#/myapps)
 - Choose **Grial Settings tab**
 - Uncheck the **"Stick to latest stable version"** checkbox
 - Select version **2.6.0.0** Release Candidate

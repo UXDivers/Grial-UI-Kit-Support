@@ -843,7 +843,8 @@ If you want to use the attached properties in a different project you need to kn
 		- On your iOS project you will need to reference both **UXDivers.Artina.Shared.** and **UXDivers.Artina.Shared.iOS**. 
 
 For more info check 
-[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup)
+[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup) 
+and [Custom Renderers Attached Properties List](renderers.html)
 ##<a name="grial-splash-screen" href="#grial-splash-screen" class="iconTitle">Splash Screen</a>
 
 Grial provides the needed infrastructure for your app to display your app's splash image.

@@ -80,7 +80,7 @@ Grial UIKit supports:
 - Android 4.2+ (API Level 17) through AppCompatV7.
 - iOS 9.0+
 - Xamarin Forms:
-    - Grial 2.5 was released with Xamarin Forms `2.3.4.270` version.
+    - Grial 2.5 was released with Xamarin Forms `2.4.0.282` version.
     - We will keep the product updated to latest stable versions.
     - Artina packages require `2.3.1.144+`.
 
@@ -203,7 +203,7 @@ iOS is analogus, but taking the default namespace of the iOS project.
 
 **Android**
 ~~~
-namespace MyApp.Droid
+namespace MyApp.Droid.Droid
 {
 	...
 	public class MainActivity : FormsAppCompatActivity
@@ -211,13 +211,12 @@ namespace MyApp.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
             ...
-            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense"); 
             ...
 ~~~
-
 **iOS**
 ~~~
-namespace MyApp.iOS
+namespace MyApp.iOS.iOS
 {
 	public class AppDelegate : FormsApplicationDelegate
 	{
@@ -365,6 +364,41 @@ In order to fix this manually remove the app from the device or simulator you ar
 #### "Grial UI Kit license not initialized, please call 'UXDivers.Artina.Shared.GrialKit.Init(<license>)' before performing the LoadApplication." Error Message
 
 This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
+
+
+
+#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+
+This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
+
+**Android**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking process. 
+You can do that by setting `Ignore assemblies` option to:
+`UXDivers.Artina.Shared.Base;UXDivers.Artina.Shared.Base.Droid;UXDivers.Artina.Shared;UXDivers.Artina.Shared.Droid`.
+
+After that the app will stop complaining. 
+
+Then it started complaining about stuff that was only referenced from the XAML (since the linker does not consider the XAML while analyzing what should be kept). 
+
+Essentially it complains about the `GrialLightTheme` (which is the theme currently set) and the `GrialShapesFont`.
+
+In order to fix this, a `PreserveAttribute` class is needed to be created as suggested 
+[here](https://developer.xamarin.com/guides/ios/advanced_topics/linker/) 
+and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
+
+~~~
+	[Preserve(AllMembers = true)]
+	public partial class GrialLightTheme
+	{
+
+
+	[Preserve(AllMembers = true)]
+	public class GrialShapesFont
+	{
+~~~
 
 ### Conventions
 For your convenience we have structured the PCL project with the following setup:
@@ -809,7 +843,8 @@ If you want to use the attached properties in a different project you need to kn
 		- On your iOS project you will need to reference both **UXDivers.Artina.Shared.** and **UXDivers.Artina.Shared.iOS**. 
 
 For more info check 
-[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup)
+[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup) 
+and [Custom Renderers Attached Properties List](renderers.html)
 ##<a name="grial-splash-screen" href="#grial-splash-screen" class="iconTitle">Splash Screen</a>
 
 Grial provides the needed infrastructure for your app to display your app's splash image.
@@ -1110,6 +1145,10 @@ for both solutions (Grial Starter and Full),
 making it easy to copy and paste pages from Grial Full to your existing project.
 
 
+### Setting Up Grial On An Existing Project
+
+To make easier adding Grial to an existing project please check 
+[setting up Grial on an existing project page](setup-grial-on-an-existing-project.html).
 
 ### Grial Sample Project Structure
 
@@ -1153,7 +1192,7 @@ iOS is analogus, but taking the default namespace of the iOS project.
 
 **Android**
 ~~~
-namespace MyApp.Droid
+namespace MyApp.Droid.Droid
 {
 	...
 	public class MainActivity : FormsAppCompatActivity
@@ -1161,13 +1200,12 @@ namespace MyApp.Droid
 		protected override void OnCreate(Bundle bundle)
 		{
             ...
-            GrialKit.Init(this, "MyApp.Droid.GrialLicense");
+            GrialKit.Init(this, "MyApp.Droid.GrialLicense"); 
             ...
 ~~~
-
 **iOS**
 ~~~
-namespace MyApp.iOS
+namespace MyApp.iOS.iOS
 {
 	public class AppDelegate : FormsApplicationDelegate
 	{
@@ -1315,6 +1353,41 @@ In order to fix this manually remove the app from the device or simulator you ar
 #### "Grial UI Kit license not initialized, please call 'UXDivers.Artina.Shared.GrialKit.Init(<license>)' before performing the LoadApplication." Error Message
 
 This error occurs when you are not calling ```Init``` or there is a Grial component being used before invoking ```Init```.
+
+
+
+#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+
+This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
+
+**Android**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking process. 
+You can do that by setting `Ignore assemblies` option to:
+`UXDivers.Artina.Shared.Base;UXDivers.Artina.Shared.Base.Droid;UXDivers.Artina.Shared;UXDivers.Artina.Shared.Droid`.
+
+After that the app will stop complaining. 
+
+Then it started complaining about stuff that was only referenced from the XAML (since the linker does not consider the XAML while analyzing what should be kept). 
+
+Essentially it complains about the `GrialLightTheme` (which is the theme currently set) and the `GrialShapesFont`.
+
+In order to fix this, a `PreserveAttribute` class is needed to be created as suggested 
+[here](https://developer.xamarin.com/guides/ios/advanced_topics/linker/) 
+and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
+
+~~~
+	[Preserve(AllMembers = true)]
+	public partial class GrialLightTheme
+	{
+
+
+	[Preserve(AllMembers = true)]
+	public class GrialShapesFont
+	{
+~~~
 ### <a name="adding-font-icons-to-your-project"></a> Adding Font Icons To Your Project
 
 
@@ -1486,7 +1559,6 @@ In order to get them available for your project you will need to add them to you
 
     [assembly: ExportRenderer(typeof(Entry), typeof(UXDivers.Artina.Shared.ArtinaEntryRenderer))]
     [assembly: ExportRenderer(typeof(Editor), typeof(UXDivers.Artina.Shared.ArtinaEditorRenderer))]
-    [assembly: ExportRenderer(typeof(Label), typeof(UXDivers.Artina.Grial.CustomFontLabelRenderer))]
     [assembly: ExportRenderer(typeof(Switch), typeof(UXDivers.Artina.Shared.ArtinaSwitchRenderer))]
     [assembly: ExportRenderer(typeof(ActivityIndicator), typeof(UXDivers.Artina.Shared.ArtinaActivityIndicatorRenderer))]
     [assembly: ExportRenderer(typeof(ProgressBar), typeof(UXDivers.Artina.Shared.ArtinaProgressBarRenderer))]
