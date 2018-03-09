@@ -32,7 +32,16 @@ We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 
-### Grial 2.5 New Features
+### Grial 2.6.9 New Features
+
+- Moved to .Net Standard from old PCLs.
+- Bindings enabled for TabItem properties.
+- Custom renderers
+	- Added `BorderStyle` and `Placeholder` properties `Editors`.
+	- Added `FieldBackgroundColor`, `SearchIconColor`, `BorderWidth` and `BorderColor` for `SearchBar`.
+
+
+### Grial 2.5 
 
 - Localization support through regular RESX files consumables from Xaml through our extensions, see [i18n](i18n-page.html).
 - Support for Right-to-left layouts in every page and template, see [Grial RTL](rtl-page.html).
@@ -843,8 +852,7 @@ If you want to use the attached properties in a different project you need to kn
 		- On your iOS project you will need to reference both **UXDivers.Artina.Shared.** and **UXDivers.Artina.Shared.iOS**. 
 
 For more info check 
-[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup) 
-and [Custom Renderers Attached Properties List](renderers.html)
+[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup)
 ##<a name="grial-splash-screen" href="#grial-splash-screen" class="iconTitle">Splash Screen</a>
 
 Grial provides the needed infrastructure for your app to display your app's splash image.

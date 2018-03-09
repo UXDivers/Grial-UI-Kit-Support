@@ -1,4 +1,54 @@
 
+# Release Notes - Grial 2.6.9.0
+
+This release is mainly focused on promoting to RTM the support for **.NET Standard** 
+that was originally released in `Grial version 2.6.0.0 RC`. 
+
+XamlC works fine starting with `Xamarin.Forms version 2.5.0.280555` so there's no reason not to opt for **.NET Standard** over the old PCLs.
+
+## New features
+
+- **Added BorderStyle and Placeholder properties Editors**. 
+	- Check here for more information: https://uxdivers.github.io/Grial-UI-Kit-Support/renderers.html
+- **Added FieldBackgroundColor, SearchIconColor, BorderWidth and BorderColor for SearchBar**. 
+	- Check here for more information: https://uxdivers.github.io/Grial-UI-Kit-Support/renderers.html
+
+## Gorilla preview
+
+This version is best previewed with Gorilla Player > 1.2.0.2. Using previous versions of Gorilla common views like Badge or the Rating control are not correctly previewed. 
+
+## Bug fixes
+
+### Android buttons
+
+`Xamarin.Forms version 2.5.0.280555` introduced this issue with Android buttons:
+
+https://github.com/xamarin/Xamarin.Forms/issues/1909
+
+`UXDivers.Artina.Shared*` packages include a partial fix for it that make ArtinaButtons look better by default. This is done through a custom renderer declared in the Android's AssemblyInfo of Grial:
+
+```[assembly: ExportRenderer(typeof(UXDivers.Artina.Shared.Button), typeof(UXDivers.Artina.Shared.ArtinaButtonRenderer))]```
+
+When the bug is fixed we will remove the workaround. To stop using the workaround you can change our render for the default Xamarin's `ButtonRenderer` to render `UXDivers.Artina.Shared.Button` in the AssemblyInfo line above.
+
+### TabItem property bindings
+
+We enabled bindings for TabItem properties. Fixes this issue:
+
+https://github.com/UXDivers/Grial-UI-Kit-Support/issues/358
+
+
+### Android v21 Style.xml changed to correctly display Acr.UserDialogs
+
+~~~
+Grial.Droid
+ |_ values-v21
+   |_ Style.xml
+~~~
+
+We ported to source code the fix for this issue:
+https://github.com/UXDivers/Grial-UI-Kit-Support/issues/297
+
 # Release Notes - Grial 2.6.0.0 RC
 
 This release is manily focused on adding support for **.NET Standard**. 
