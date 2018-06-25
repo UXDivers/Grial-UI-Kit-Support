@@ -1,4 +1,43 @@
 
+# Release Notes - Grial 2.7.0.0
+
+This release is mainly focused on adding support for `Xamarin Forms` 3+.
+
+Additionally, we fixed issues related to RTL support mainly in Android and we added improvements on `TabControl` and `Repeater` controls.
+
+## Updates on Grial:
+
+- Updated `Xamarin Forms` packages to latest stable (3.1.0.583944).
+- Updated `Newtonsoft.Json` (11.0.2) and `FFImageLoading` packages (2.4.3.840) to latest stable versions.
+- Fixed default background color on `RoundedLabel` control to be `Color.Default`.
+- Used new properties on `Xamarin Forms` 3.1 to style `ProgressBar` (through `ProgressColor`) and `Slider` (through `MinimumTrackColor` and `ThumbColor`) without using the old custom renderers.
+- Used new `Xamarin Forms` 3.1 `OnColor` property to style iOS `Switch`. Kept custom renderer for Android as that property does not affect the thumb of the switch in Android.
+
+## Updates on Grial RTL:
+
+- Added label renderer to fix text alignment issues with RTL in Android, that behaves differently than in iOS. See details here:
+    - https://github.com/xamarin/Xamarin.Forms/issues/3077
+- Set Xamarin Forms' `FlowDirection` to LTR on content pages to make things predictable.
+
+## Updates on Artina packages:
+
+- RTL
+    - Updated master detail renderer to work with `Xamarin Forms` 3 on RTL Android devices.
+
+- Repeater
+    - Added auto item size calculation.
+    - Added `ScrollPadding` property to define a padding around the inner scrollable area.
+
+- TabControl 
+    - Fixed Xamarin.Forms `AutomationId` property on `TabItem` which was not working.
+    - Fixed tab relayout on `Android` (got broken after moving from landscape to portait on `Android`).
+
+- Android's switch renderer
+    - Updated renderer to work with `Xamarin Forms` 3.1.
+
+## Gorilla Player
+
+This version requires Gorilla 1.2.2+ to be previewed. This is because it makes use of `MergedDictionaries` property which was not supported by previous versions of Gorilla.
 # Release Notes - Grial 2.6.9.0
 
 This release is mainly focused on promoting to RTM the support for **.NET Standard** 
@@ -329,7 +368,6 @@ To add a font icon to your `TabItem` simply use the following properties:
 
 
 
-
 # Release Notes - Grial 2.0.60.0
 
 This update has three main goals:
@@ -469,7 +507,6 @@ The following nuget packages where updated:
 - ```UXDivers.Artina.Shared``` to version 2.0.60.0
 - ```UXDivers.Artina.Controls.Tab``` to version 2.0.60.0
 - ```UXDivers.Artina.Controls.Repeater``` to version 2.0.60.0
-
 
 
 # Release Notes - Grial 2.0.52.0
