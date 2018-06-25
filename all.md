@@ -32,6 +32,26 @@ We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 
+### Grial 2.7.0.0 Update
+
+- Updated `Xamarin Forms` packages to latest stable (3.1.0.583944).
+- Updated `Newtonsoft.Json` (11.0.2) and `FFImageLoading` packages (2.4.3.840) to latest stable versions.
+- Fixed default background color on `RoundedLabel` control to be `Color.Default`.
+- Used new properties on `Xamarin Forms` 3.1 to style `ProgressBar` (through `ProgressColor`) and `Slider` (through `MinimumTrackColor` and `ThumbColor`) without using the old custom renderers.
+- Used new `Xamarin Forms` 3.1 `OnColor` property to style iOS `Switch`. Kept custom renderer for Android as that property does not affect the thumb of the switch in Android.
+- Repeater
+    - Added auto item size calculation.
+    - Added `ScrollPadding` property to define a padding around the inner scrollable area.
+
+- TabControl 
+    - Fixed Xamarin.Forms `AutomationId` property on `TabItem` which was not working.
+    - Fixed tab relayout on `Android` (got broken after moving from landscape to portait on `Android`).
+
+- Android's switch renderer
+    - Updated renderer to work with `Xamarin Forms` 3.1.
+
+<a href="/release-notes.html">Read release notes...</a>
+
 ### Grial 2.6.9 New Features
 
 - Moved to .Net Standard from old PCLs.
