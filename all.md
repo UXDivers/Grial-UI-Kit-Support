@@ -32,6 +32,8 @@ We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 
+
+
 ### Grial 2.7.0.0 Update
 
 - Updated `Xamarin Forms` packages to latest stable (3.1.0.583944).
@@ -143,6 +145,21 @@ Grial Admin let's you download both full and the starter projects anytime from y
 </div>
 
 
+## Getting Started video series
+
+<a class="youtube" href="https://youtu.be/opo0OTAYl0U" title="Working with Grial Video Series - Video 1" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/opo0OTAYl0U/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDp0OM-JGImfRvTOUdQOMp-khiPWg" alt="Working with Grial Video Series - Video 1" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 1](https://youtu.be/opo0OTAYl0U)
+
+<a class="youtube" href="https://youtu.be/E8Tp0EvSyng" title="Working with Grial Video Series - Video 2" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/E8Tp0EvSyng/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAl0p1RA9n6VREOWjHnQRHFP3QjWg" alt="Working with Grial Video Series - Video 2" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 2](https://youtu.be/E8Tp0EvSyng)
+
+<a class="youtube" href="https://youtu.be/7cHmG-eRRs0" title="Working with Grial Video Series - Video 3" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/7cHmG-eRRs0/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBMjctzdoSeZB2Lr21jT3-kvHKKrw" alt="Working with Grial Video Series - Video 3" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 3](https://youtu.be/7cHmG-eRRs0)
+
+<a class="youtube" href="https://youtu.be/SdNDgVUkE3U" title="Working with Grial Video Series - Video 4" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/SdNDgVUkE3U/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCkJfsuyC1U3WXnwvwAt2uTiCPGHQ" alt="Working with Grial Video Series - Video 4" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 4](https://youtu.be/SdNDgVUkE3U)
+
+<a class="youtube" href="https://youtu.be/qHPnd_7SDFw" title="Working with Grial Video Series - Video 5" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/qHPnd_7SDFw/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDRB9oXi5kAUSabkFaGv18cleDOmA" alt="Working with Grial Video Series - Video 5" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>[Working with Grial Video Series - Video 5](https://youtu.be/qHPnd_7SDFw)
 ##  <a name="grial-first-run"></a> Grial First Run
 
 Once you download Grial, there's just one more step to follow before you can compiling. 
@@ -396,7 +413,7 @@ This error occurs when you are not calling ```Init``` or there is a Grial compon
 
 
 
-#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+#### Release License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
 
 This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
 
@@ -428,6 +445,18 @@ and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
 	public class GrialShapesFont
 	{
 ~~~
+
+**iOS**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking. 
+To achieve that, add the following to the "Additional mtouch arguments":
+
+~~~
+	--linkskip=UXDivers.Artina.Shared.Base --linkskip=UXDivers.Artina.Shared.Base.iOS --linkskip=UXDivers.Artina.Shared --linkskip=UXDivers.Artina.Shared.iOS
+~~~
+That will solve the license issues. 
+You will also needed a `PreserveAttribute` class as it is done in Android.
 
 ### Conventions
 For your convenience we have structured the PCL project with the following setup:
@@ -1384,7 +1413,7 @@ This error occurs when you are not calling ```Init``` or there is a Grial compon
 
 
 
-#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+#### Release License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
 
 This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
 
@@ -1416,6 +1445,18 @@ and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
 	public class GrialShapesFont
 	{
 ~~~
+
+**iOS**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking. 
+To achieve that, add the following to the "Additional mtouch arguments":
+
+~~~
+	--linkskip=UXDivers.Artina.Shared.Base --linkskip=UXDivers.Artina.Shared.Base.iOS --linkskip=UXDivers.Artina.Shared --linkskip=UXDivers.Artina.Shared.iOS
+~~~
+That will solve the license issues. 
+You will also needed a `PreserveAttribute` class as it is done in Android.
 ### <a name="adding-font-icons-to-your-project"></a> Adding Font Icons To Your Project
 
 

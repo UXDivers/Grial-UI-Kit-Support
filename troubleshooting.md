@@ -14,13 +14,13 @@ To make sure you use the right URL, please copy and paste the one below:
 
 We have compiled the most typical technical issues in regards licenses here:
 
-[Troubleshooting License Issues](/#grial-uikit-overview-grial-first-run-troubleshooting-license-issues)
+[Troubleshooting License Issues](/Grial-UI-Kit-Support/#grial-uikit-overview-grial-first-run-troubleshooting-license-issues)
 
 ## Grial Themes
 
 We have compiled the most typical technical issues about themes compilation here:
 
-[Troubleshooting Themes Compilation](/#grial-uikit-overview-theme-and-branding-of-your-app-troubleshooting-themes-compilation)
+[Troubleshooting Themes Compilation](/Grial-UI-Kit-Support/#grial-uikit-overview-theme-and-branding-of-your-app-troubleshooting-themes-compilation)
 
 ## i18n
 
