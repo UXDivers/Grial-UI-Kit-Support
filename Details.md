@@ -32,8 +32,6 @@ We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 
-
-
 ### Grial 2.7.0.0 Update
 
 - Updated `Xamarin Forms` packages to latest stable (3.1.0.583944).
@@ -619,8 +617,8 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 ~~~
 	{
 		"ThemeSyncEnabled": true,
-		"AppXamlFullPath": null,
-		"AppXamlProjectFullPath": null,
+		"AppXamlPath": null,
+		"AppXamlProjectPath": null,
 		"iOSColorsFileName": "ThemeColors.cs",
 		"AndroidColorsFile": "Resources\\values\\Colors.xml",
 		"iOSColorsNamespace": null,
@@ -632,15 +630,15 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 	- Default value: ```true```.
 	- If set to false, theme sync will not happen at all for the projects in the folder.
 
-- **AppXamlFullPath** (```string```).
+- **AppXamlPath** (```string```).
 	- Default value: ```null```.
 	- The full path to the ```App.xaml```, if specified the task will not try to infer it.
 
-- **AppXamlProjectFullPath** (```string```).
+- **AppXamlProjectPath** (```string```).
 	- Default value: ```null```.
-	- This parameter is only considered if **AppXamlFullPath** was specified.  
+	- This parameter is only considered if **AppXamlPath** was specified.  
 	- The parameter specifies the full path to the project that contains the ```App.xaml```. 
-	- If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
+	- If only **AppXamlPath** is specified, the task will try to infer **AppXamlProjectPath**. 
 		- If you specify both it will just stick to them.
 
 - **iOSColorsFileName** (```string```)
@@ -709,11 +707,11 @@ In order to instruct the build task the right path to your ```App.xaml``` or equ
 
 ```
 	{
-		"AppXamlFullPath" : "<absolute path of App.xaml in your project>"
+		"AppXamlPath" : "<absolute path of App.xaml in your project>"
 	}
 ```
 
-Optionally you can add another property called ```AppXamlProjectFullPath``` containing the path to the project that contains the ```App.xaml```. If not specified, the task will try to infer it.
+Optionally you can add another property called ```AppXamlProjectPath``` containing the path to the project that contains the ```App.xaml```. If not specified, the task will try to infer it.
 
 ## Brand Image
 

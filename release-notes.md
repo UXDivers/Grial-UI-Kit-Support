@@ -608,8 +608,8 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 ~~~
   {
     "ThemeSyncEnabled": true,
-    "AppXamlFullPath": null,
-    "AppXamlProjectFullPath": null,
+    "AppXamlPath": null,
+    "AppXamlProjectPath": null,
     "iOSColorsFileName": "ThemeColors.cs",
     "AndroidColorsFile": "Resources\\values\\Colors.xml",
     "iOSColorsNamespace": null,
@@ -621,15 +621,15 @@ If you want to configure both Android and iOS you will need to add two ```Themes
   - Default value: ```true```.
   - If set to false, theme sync will not happen at all for the projects in the folder.
 
-- **AppXamlFullPath** (```string```).
+- **AppXamlPath** (```string```).
   - Default value: ```null```.
   - The full path to the ```App.xaml```, if specified the task will not try to infer it.
 
-- **AppXamlProjectFullPath** (```string```).
+- **AppXamlProjectPath** (```string```).
   - Default value: ```null```.
-  - This parameter is only considered if **AppXamlFullPath** was specified.  
+  - This parameter is only considered if **AppXamlPath** was specified.  
   - The parameter specifies the full path to the project that contains the ```App.xaml```. 
-  - If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
+  - If only **AppXamlPath** is specified, the task will try to infer **AppXamlProjectPath**. 
     - If you specify both it will just stick to them.
 
 - **iOSColorsFileName** (```string```)

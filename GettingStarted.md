@@ -32,7 +32,36 @@ We also provide design and Grial customization services.
 
 [![UXDivers Design Services](http://52.10.147.219/system/uploads/images/custom_grial.png)](mailto:hello@uxdivers.com)
 
-### Grial 2.5 New Features
+### Grial 2.7.0.0 Update
+
+- Updated `Xamarin Forms` packages to latest stable (3.1.0.583944).
+- Updated `Newtonsoft.Json` (11.0.2) and `FFImageLoading` packages (2.4.3.840) to latest stable versions.
+- Fixed default background color on `RoundedLabel` control to be `Color.Default`.
+- Used new properties on `Xamarin Forms` 3.1 to style `ProgressBar` (through `ProgressColor`) and `Slider` (through `MinimumTrackColor` and `ThumbColor`) without using the old custom renderers.
+- Used new `Xamarin Forms` 3.1 `OnColor` property to style iOS `Switch`. Kept custom renderer for Android as that property does not affect the thumb of the switch in Android.
+- Repeater
+    - Added auto item size calculation.
+    - Added `ScrollPadding` property to define a padding around the inner scrollable area.
+
+- TabControl 
+    - Fixed Xamarin.Forms `AutomationId` property on `TabItem` which was not working.
+    - Fixed tab relayout on `Android` (got broken after moving from landscape to portait on `Android`).
+
+- Android's switch renderer
+    - Updated renderer to work with `Xamarin Forms` 3.1.
+
+<a href="/release-notes.html">Read release notes...</a>
+
+### Grial 2.6.9 New Features
+
+- Moved to .Net Standard from old PCLs.
+- Bindings enabled for TabItem properties.
+- Custom renderers
+	- Added `BorderStyle` and `Placeholder` properties `Editors`.
+	- Added `FieldBackgroundColor`, `SearchIconColor`, `BorderWidth` and `BorderColor` for `SearchBar`.
+
+
+### Grial 2.5 
 
 - Localization support through regular RESX files consumables from Xaml through our extensions, see [i18n](i18n-page.html).
 - Support for Right-to-left layouts in every page and template, see [Grial RTL](rtl-page.html).
@@ -114,6 +143,21 @@ Grial Admin let's you download both full and the starter projects anytime from y
 </div>
 
 
+## Getting Started video series
+
+<a class="youtube" href="https://youtu.be/opo0OTAYl0U" title="Working with Grial Video Series - Video 1" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/opo0OTAYl0U/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDp0OM-JGImfRvTOUdQOMp-khiPWg" alt="Working with Grial Video Series - Video 1" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 1](https://youtu.be/opo0OTAYl0U)
+
+<a class="youtube" href="https://youtu.be/E8Tp0EvSyng" title="Working with Grial Video Series - Video 2" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/E8Tp0EvSyng/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAl0p1RA9n6VREOWjHnQRHFP3QjWg" alt="Working with Grial Video Series - Video 2" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 2](https://youtu.be/E8Tp0EvSyng)
+
+<a class="youtube" href="https://youtu.be/7cHmG-eRRs0" title="Working with Grial Video Series - Video 3" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/7cHmG-eRRs0/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLBMjctzdoSeZB2Lr21jT3-kvHKKrw" alt="Working with Grial Video Series - Video 3" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 3](https://youtu.be/7cHmG-eRRs0)
+
+<a class="youtube" href="https://youtu.be/SdNDgVUkE3U" title="Working with Grial Video Series - Video 4" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/SdNDgVUkE3U/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLCkJfsuyC1U3WXnwvwAt2uTiCPGHQ" alt="Working with Grial Video Series - Video 4" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>
+[Working with Grial Video Series - Video 4](https://youtu.be/SdNDgVUkE3U)
+
+<a class="youtube" href="https://youtu.be/qHPnd_7SDFw" title="Working with Grial Video Series - Video 5" target="_blank"><img class="image-with-border no-zoom" src="https://i.ytimg.com/vi/qHPnd_7SDFw/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDRB9oXi5kAUSabkFaGv18cleDOmA" alt="Working with Grial Video Series - Video 5" />  <img class="playButton" src="http://52.10.147.219/system/uploads/images/yt_icon_rgb.svg" /></a><br>[Working with Grial Video Series - Video 5](https://youtu.be/qHPnd_7SDFw)
 ##  <a name="grial-first-run"></a> Grial First Run
 
 Once you download Grial, there's just one more step to follow before you can compiling. 
@@ -367,7 +411,7 @@ This error occurs when you are not calling ```Init``` or there is a Grial compon
 
 
 
-#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+#### Release License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
 
 This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
 
@@ -399,6 +443,18 @@ and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
 	public class GrialShapesFont
 	{
 ~~~
+
+**iOS**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking. 
+To achieve that, add the following to the "Additional mtouch arguments":
+
+~~~
+	--linkskip=UXDivers.Artina.Shared.Base --linkskip=UXDivers.Artina.Shared.Base.iOS --linkskip=UXDivers.Artina.Shared --linkskip=UXDivers.Artina.Shared.iOS
+~~~
+That will solve the license issues. 
+You will also needed a `PreserveAttribute` class as it is done in Android.
 
 ### Conventions
 For your convenience we have structured the PCL project with the following setup:
@@ -561,8 +617,8 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 ~~~
 	{
 		"ThemeSyncEnabled": true,
-		"AppXamlFullPath": null,
-		"AppXamlProjectFullPath": null,
+		"AppXamlPath": null,
+		"AppXamlProjectPath": null,
 		"iOSColorsFileName": "ThemeColors.cs",
 		"AndroidColorsFile": "Resources\\values\\Colors.xml",
 		"iOSColorsNamespace": null,
@@ -574,15 +630,15 @@ If you want to configure both Android and iOS you will need to add two ```Themes
 	- Default value: ```true```.
 	- If set to false, theme sync will not happen at all for the projects in the folder.
 
-- **AppXamlFullPath** (```string```).
+- **AppXamlPath** (```string```).
 	- Default value: ```null```.
 	- The full path to the ```App.xaml```, if specified the task will not try to infer it.
 
-- **AppXamlProjectFullPath** (```string```).
+- **AppXamlProjectPath** (```string```).
 	- Default value: ```null```.
-	- This parameter is only considered if **AppXamlFullPath** was specified.  
+	- This parameter is only considered if **AppXamlPath** was specified.  
 	- The parameter specifies the full path to the project that contains the ```App.xaml```. 
-	- If only **AppXamlFullPath** is specified, the task will try to infer **AppXamlProjectFullPath**. 
+	- If only **AppXamlPath** is specified, the task will try to infer **AppXamlProjectPath**. 
 		- If you specify both it will just stick to them.
 
 - **iOSColorsFileName** (```string```)
@@ -651,11 +707,11 @@ In order to instruct the build task the right path to your ```App.xaml``` or equ
 
 ```
 	{
-		"AppXamlFullPath" : "<absolute path of App.xaml in your project>"
+		"AppXamlPath" : "<absolute path of App.xaml in your project>"
 	}
 ```
 
-Optionally you can add another property called ```AppXamlProjectFullPath``` containing the path to the project that contains the ```App.xaml```. If not specified, the task will try to infer it.
+Optionally you can add another property called ```AppXamlProjectPath``` containing the path to the project that contains the ```App.xaml```. If not specified, the task will try to infer it.
 
 ## Brand Image
 
@@ -843,8 +899,7 @@ If you want to use the attached properties in a different project you need to kn
 		- On your iOS project you will need to reference both **UXDivers.Artina.Shared.** and **UXDivers.Artina.Shared.iOS**. 
 
 For more info check 
-[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup) 
-and [Custom Renderers Attached Properties List](renderers.html)
+[Setting Up Artina Custom Renderers in your project ](#artina-custom-renderers-setup)
 ##<a name="grial-splash-screen" href="#grial-splash-screen" class="iconTitle">Splash Screen</a>
 
 Grial provides the needed infrastructure for your app to display your app's splash image.
@@ -1356,7 +1411,7 @@ This error occurs when you are not calling ```Init``` or there is a Grial compon
 
 
 
-#### Release APK License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
+#### Release License Issue: "UXDivers.Artina.Shared.LicenseException: Internal license validation error"
 
 This is probably caused because in `Release Mode` you have set the linker behavior to `Link All assemblies`.
 
@@ -1388,6 +1443,18 @@ and add it to the `GrialLightTheme` and the `GrialShapesFont`, as follows:
 	public class GrialShapesFont
 	{
 ~~~
+
+**iOS**
+
+Setting the linker to `Link all assemblies` will start producing the mentioned error. 
+In order to fix it you need to exclude `UXDivers.Artina` assemblies from the linking. 
+To achieve that, add the following to the "Additional mtouch arguments":
+
+~~~
+	--linkskip=UXDivers.Artina.Shared.Base --linkskip=UXDivers.Artina.Shared.Base.iOS --linkskip=UXDivers.Artina.Shared --linkskip=UXDivers.Artina.Shared.iOS
+~~~
+That will solve the license issues. 
+You will also needed a `PreserveAttribute` class as it is done in Android.
 ### <a name="adding-font-icons-to-your-project"></a> Adding Font Icons To Your Project
 
 
