@@ -32,7 +32,7 @@ This is our public repository for our customers to get help, report bugs, add fe
 ## Grial 3 Getting Started video series
 
 ### [Working with Grial 3 Video Series: Grial Admin - Video 1/4](https://youtu.be/MXcTWEZVc8w)
-[![Working with Grial Video Series - Video 1](g3-video-01.png)](https://youtu.be/MXcTWEZVc8w)
+[![Working with Grial Video Series - Video 1](/grial_3_icon_selection.png)](https://youtu.be/MXcTWEZVc8w)
 
 ### [Working with Grial 3 Video Series: Solution Overview - Video 2/4](https://youtu.be/pGqiSdDzj9Y)
 [![Working with Grial 3 Video Series: Solution Overview - Video 2/4](g3-video-02.png)](https://youtu.be/pGqiSdDzj9Y)
@@ -42,35 +42,3 @@ This is our public repository for our customers to get help, report bugs, add fe
 
 ### [Working with Grial 3 Video Series: Gorilla Player - Video 4/4](https://youtu.be/L3sLf1y2v_c)
 [![Working with Grial 3 Video Series: Gorilla Player - Video 4/4](g3-video-04.png)](https://youtu.be/L3sLf1y2v_c)
-
-
-<!--
-{{!-- "https://i.ytimg.com/vi/opo0OTAYl0U/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLDp0OM-JGImfRvTOUdQOMp-khiPWg"  --}}
-{{{ youTubeVideo2
-"https://youtu.be/MXcTWEZVc8w" 
-"g3-video-01.png"
-"Working with Grial 3 Video Series: Grial Admin - Video 1/4" 
-}}}<br>
-[Working with Grial 3 Video Series: Grial Admin - Video 1/4](https://youtu.be/MXcTWEZVc8w)
-
-{{{ youTubeVideo2
-"https://youtu.be/pGqiSdDzj9Y" 
-"g3-video-02.png" 
-"Working with Grial 3 Video Series: Solution Overview - Video 2/4" 
-}}}<br>
-[Working with Grial 3 Video Series: Solution Overview - Video 2/4](https://youtu.be/pGqiSdDzj9Y)
-
-{{{ youTubeVideo2
-"https://youtu.be/VVffK64C57M" 
-"g3-video-03.png" 
-"Working with Grial 3 Video Series 03: Key Concepts - Video 3/4" 
-}}}<br>
-[Working with Grial 3 Video Series 03: Key Concepts - Video 3/4](https://youtu.be/VVffK64C57M)
-
-{{{ youTubeVideo2
-"https://youtu.be/L3sLf1y2v_c" 
-"g3-video-04.png" 
-"Working with Grial 3 Video Series: Gorilla Player - Video 4/4" 
-}}}<br>
-[Working with Grial 3 Video Series: Gorilla Player - Video 4/4](https://youtu.be/L3sLf1y2v_c)
--->
