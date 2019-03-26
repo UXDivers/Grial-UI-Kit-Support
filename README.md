@@ -8,8 +8,9 @@ This is our public repository for our customers to get help, report bugs, add fe
 [Grial UI Kit for Xamarin Forms](http://grialkit.com?ref=git)
 
 ## Looking for Grial Docs?
-[Check Grial Documentation](//uxdivers.github.io/Grial-UI-Kit-Support/docs.html)
+[Check Grial Documentation](//docs.grialkit.com/)
 
+<!--
 ## Getting Started video series
 
 ### [Working with Grial Video Series - Video 1](https://youtu.be/opo0OTAYl0U)
@@ -26,3 +27,4 @@ This is our public repository for our customers to get help, report bugs, add fe
 
 ### [Working with Grial Video Series - Video 5](https://youtu.be/qHPnd_7SDFw)
 [![Working with Grial Video Series - Video 5](https://img.youtube.com/vi/qHPnd_7SDFw/default.jpg)](https://youtu.be/qHPnd_7SDFw)
+-->
