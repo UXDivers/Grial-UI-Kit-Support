@@ -1,7 +1,7 @@
 # Grial UI Kit Support
 
 
-![Grial UI Kit](http://grialkit.com/wp-content/uploads/2014/12/app_logo_2x.png)
+![Grial UI Kit](http://grialkit.com/wp-content/uploads/2014/12/app_logo_2x.jpg)
 
 
 This is our public repository for our customers to get help, report bugs, add feature requests, etc., about 
