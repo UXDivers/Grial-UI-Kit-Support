@@ -4,91 +4,40 @@
   <meta charset='utf-8'>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
-
-  <title>Grial Release Notes</title>
-
-  <!-- Flatdoc -->
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src='//cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/legacy.js'></script>
-  <script src='//cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/flatdoc.js'></script>
-
-  <!-- Flatdoc theme -->
-  <link  href='//cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/style.css' rel='stylesheet'>
-  <script src='//cdn.rawgit.com/rstacruz/flatdoc/v0.9.0/theme-white/script.js'></script>
-
-  <link  href='styles.css' rel='stylesheet'>
+  <meta http-equiv="refresh" content="0; URL='https://docs.grialkit.com'" />
+  <title>Grial Documentation</title>
 
   <!-- Meta -->
   <meta content="Grial UI Kit" property="og:title">
   <meta content="Beautiful responsive XAML templates for Xamarin.Forms" name="description">
-
-  <!-- Initializer -->
-  <script>
-    Flatdoc.run({
-      fetcher: Flatdoc.file('release-notes.md')
-    });
-
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        var headerOffsetHeight = $("header").outerHeight();
-        if (document.body.scrollTop > headerOffsetHeight || document.documentElement.scrollTop > headerOffsetHeight) {
-            document.getElementById("btnBackToTop").style.display = "block";
-        } else {
-            document.getElementById("btnBackToTop").style.display = "none";
-        }
+  <style>
+    html, body{
+      height: 100%;
+      display: grid;
     }
-
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-        var body = $("html, body");
-        body.stop().animate({scrollTop:0}, 250, 'swing');
-    }
-  </script>
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-66791822-7"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-66791822-7');
-  </script>
+  </style>
 </head>
-<body class="no-literate big-h3" role='flatdoc'>
-
-  <div class='header'>
-    <div class='left'>
-      <h1>
-        <a href="//uxdivers.github.io/Grial-UI-Kit-Support/">
-          <img src="app_logo_1x.png" />
-        </a>
-      </h1>
-      <ul>
-        <li><a href='release-notes.html'>Release notes</a></li>
-        <li><a href='rtl-page.html'>Grial RTL</a></li>
-        <li><a href='i18n-page.html'>Grial i18n</a></li>
-        <li><a href='renderers.html'>Custom renderers</a></li>        
-        <li><a href='troubleshooting.html'>Troubleshooting</a></li>
-      </ul>
-    </div>
-     <div class='right'>
-      <ul>
-        <li><a href='//github.com/UXDivers/Grial-UI-Kit-Support'>Support Website</a></li>
-        <li><a href='//github.com/UXDivers/Grial-UI-Kit-Support/issues'>See Issues</a></li>
-      </ul>
-    </div> 
-  </div>
-
-  <div class='content-root'>
-    <div class='menubar'>
-      <div class='menu section' role='flatdoc-menu'></div>
-    </div>
-    <div role='flatdoc-content' class='content'></div>
-  </div>
-
-  <button onclick="topFunction()" id="btnBackToTop" title="Back to top">Top</button>
   
-</body>
+<body style="background: #EEEEEE;">
+
+  <div style="
+    border: 1px solid #BDBDBD;
+    padding: 30px 60px;
+    font-family: sans-serif;
+    text-align: center;
+    margin: auto;
+    color: rgb(102, 102, 102);
+    background: white;
+"><img src="app_logo_2x.jpg" style="
+    width: 90px;
+"><p>Grial Documentation was moved to:</p>
+
+    <p>
+        <a href="//uxdivers.github.io/Grial-UI-Kit-Support/">
+          docs.grialkit.com
+        </a>
+      </p>
+      
+  </div>
+  </body>
 </html>
