@@ -1,3 +1,10 @@
+[//]: <> (--------- INFO -----------)
+[//]: <> (If you have a pro license,)
+[//]: <> (you can create a ticket in)
+[//]: <> (our customer support portal)
+[//]: <> (to get priority support.  )
+[//]: <> (--------------------------)
+
 ---
 name: Bug report
 about: Create a report to help us improve
